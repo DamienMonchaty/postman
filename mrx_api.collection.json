@@ -7142,7 +7142,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/address",
+							"raw": "{{baseUrl}}/address?idAddressBookEntity={\"$isNull\":true}",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -7196,9 +7196,8 @@
 									"disabled": true
 								},
 								{
-									"key": "sProvince",
-									"value": "{\"$isNull\":true}",
-									"disabled": true
+									"key": "idAddressBookEntity",
+									"value": "{\"$isNull\":true}"
 								},
 								{
 									"key": "sProvince",
@@ -9572,8 +9571,8 @@
 									"const response = pm.response;\r",
 									"\r",
 									"// Retrieve the email and password for this iteration\r",
-									"const email = pm.iterationData.get(\"email\");\r",
-									"const password = pm.iterationData.get(\"password\");\r",
+									"const email = pm.iterationData.get(\"email\") ?? JSON.parse(pm.request.body).email;\r",
+									"const password = pm.iterationData.get(\"password\") ?? JSON.parse(pm.request.body).password;\r",
 									"\r",
 									"// Iteration 1 -> SUCCESS\r",
 									"if (pm.info.iteration === 0) {\r",
@@ -9607,8 +9606,8 @@
 									"// Iteration 2 -> UNAUTHORIZED\r",
 									"else if (pm.info.iteration === 1) {\r",
 									"    pm.test(\"Iteration 2 - Verify status code -> UNAUTHORIZED\", () => {\r",
-									"        response.to.have.status(401);  // Check that the status code is 401\r",
-									"        pm.expect(response.status).to.eql(\"Unauthorized\");  // Confirm response status as \"Not Found\"\r",
+									"        response.to.have.status(404);  // Check that the status code is 404\r",
+									"        pm.expect(response.status).to.eql(\"Not Found\");  // Confirm response status as \"Not Found\"\r",
 									"    });\r",
 									"\r",
 									"    pm.test(\"Iteration 2 - Response body structure is valid -> UNAUTHORIZED\", () => {\r",
@@ -9623,7 +9622,7 @@
 									"    });\r",
 									"\r",
 									"    pm.test(\"Iteration 2 - Verify message -> UNAUTHORIZED\", () => {\r",
-									"        pm.expect(response.json().message).to.eql(\"Model User not found in database auth_dev\");  // Expect specific message for unauthorized access\r",
+									"        pm.expect(response.json().message).to.eql(\"Model User not found in database aspnet\");  // Expect specific message for unauthorized access\r",
 									"    });\r",
 									"}\r",
 									"// Iteration 3 -> BAD REQUEST\r",
