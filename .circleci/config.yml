@@ -12,5 +12,5 @@ jobs:
     steps:
       - checkout
       - newman/newman-run:
-          collection: ./mrx_api.collection.postman_collection.json
+          collection: ./mrx_api.collection.json
 workflows: null
