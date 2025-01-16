@@ -9622,7 +9622,7 @@
 									"    });\r",
 									"\r",
 									"    pm.test(\"Iteration 2 - Verify message -> UNAUTHORIZED\", () => {\r",
-									"        pm.expect(response.json().message).to.eql(\"Model User not found in database aspnet\");  // Expect specific message for unauthorized access\r",
+									"        pm.expect(response.json().message).to.eql(\"Model User not found in database aspnetdb\");  // Expect specific message for unauthorized access\r",
 									"    });\r",
 									"}\r",
 									"// Iteration 3 -> BAD REQUEST\r",
