@@ -8,6 +8,6 @@ jobs:
       - checkout
       - newman/newman-run:
           collection: ./mrx_api.collection.postman_collection.json
-		  data: ./users.json
+	  data: ./users.json
 			
 workflows: null
