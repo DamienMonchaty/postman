@@ -1,0 +1,13 @@
+version: 2.1
+orbs:
+  newman: postman@1.0.0
+jobs:
+  build:
+    executor: newman/postman-newman-docker
+    steps:
+      - checkout
+      - newman/newman-run:
+          collection: ./mrx_api.collection.postman_collection.json
+		  data: ./users.json
+			
+workflows: null
