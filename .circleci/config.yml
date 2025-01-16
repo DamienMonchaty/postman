@@ -13,6 +13,5 @@ jobs:
       - checkout
       - newman/newman-run:
           collection: ./mrx_api.collection.json
-          iteration-count: 3
           iteration-data: ./users.json
 workflows: null
