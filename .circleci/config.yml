@@ -1,0 +1,16 @@
+version: 2.1
+description: |
+    Newman is a collection runner for Postman. It allows you to effortlessly run and test a Postman collection.
+display:
+    home_url: https://www.postman.com/
+    source_url: https://github.com/postmanlabs/newman-orb
+orbs:
+  newman: postman/newman@1.0.0
+jobs:
+  build:
+    executor: newman/postman-newman-docker
+    steps:
+      - checkout
+      - newman/newman-run:
+          collection: ./mrx_api.collection.json
+workflows: null
