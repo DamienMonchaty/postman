@@ -1,6 +1,6 @@
 [
     {
-        "idAddress": "301",
+        "idAddress": "1",
         "idAddressBookEntity": "4",
         "sTitle": "sTitleValue",
         "sStreet": "sStreetValue",
@@ -18,7 +18,7 @@
         "sCountry": ""
     },
     {
-        "idAddress": "301",
+        "idAddress": "1",
         "idAddressBookEntity": "999",
         "sTitle": "sTitleValue",
         "sStreet": "sStreetValue",
