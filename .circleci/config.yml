@@ -18,7 +18,7 @@ jobs:
           folder: auth
       - newman/newman-run:
           collection: ./collections/mrx_api.collection.json
-          environment: ./environments/mrx_api.postman_environment.json
+          environment: ./env/mrx_api.postman_environment.json
           iteration-data: ./data/addresses.json
           iteration-count: "3"
           folder: address
