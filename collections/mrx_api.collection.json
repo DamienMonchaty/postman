@@ -1379,9 +1379,7 @@
 									"            });\r",
 									"        });\r",
 									"    });\r",
-									"} else if (pm.info.iteration >= 1) {\r",
-									"    pm.execution.setNextRequest(null);\r",
-									"} "
+									"}"
 								],
 								"type": "text/javascript",
 								"packages": {}
@@ -3470,10 +3468,11 @@
 		{
 			"listen": "prerequest",
 			"script": {
+				"type": "text/javascript",
 				"exec": [
 					"// Define the login request details (URL, method, headers, and body)\r",
 					"const loginRequest = {\r",
-					"    url: 'http://localhost:3000/auth/login',  // API endpoint for login\r",
+					"    url: 'https://api.mrxsys.com/auth/login',  // API endpoint for login\r",
 					"    method: 'POST',  // HTTP method to be used (POST for login)\r",
 					"    header: 'Content-Type:application/json',  // Set the header content type to JSON\r",
 					"    body: {\r",
@@ -3498,18 +3497,27 @@
 					"// Add a custom header for the database being used in the request\r",
 					"pm.request.headers.add({\r",
 					"    key: 'database-using',  // Header name\r",
-					"    value: 'beDemo1_dev'  // Value indicating the specific database (e.g., 'beDemo1_dev')\r",
+					"    value: 'beDemo6'  // Value indicating the specific database (e.g., 'beDemo1_dev')\r",
 					"});\r",
 					""
-				],
-				"type": "text/javascript"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
 			}
 		}
 	],
 	"variable": [
 		{
 			"key": "baseUrl",
-			"value": "http://localhost:3000",
+			"value": "https://api.mrxsys.com",
 			"type": "string"
 		},
 		{
