@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "a38bd8f7-6c0a-43c0-b870-b2372296565d",
+		"_postman_id": "51689f2c-36a0-482d-a4fd-b60a54e6d0d1",
 		"name": "MRX API TESTING",
 		"description": "\nThis is the API of MRX Systems.\n\nIt allows you to interact with the MRX systems.\n\n## Authentication\nTo authenticate, use the **POST /auth/login** route with the following body:\n```json\n{\n    \"email\": \"youremail@example.com\",\n    \"password\": \"yourpassword\"\n}\n```\nAfter a successful login, you will receive a token in the response body (`content.access_token`).\n\nUse this token in the **Authorization** header with the **Bearer** prefix to access the protected routes.\n\n## Permissions\nPermissions are used to control access to different routes in the application.\n\nEach user has specific permissions for each selected database during their requests.\n\nExamples:\n\n- Database1: `['profile.all', 'example.all']`.\n- Database2: `['profile.all', 'example.read']`.\n\n## Permissions Structure\n- Permissions are structured in the format: `[module].[action]`.\n\n## Actions\n- **all**: Allows access to all resources.\n- **read**: Allows reading resources.\n- **create**: Allows creating resources.\n- **update**: Allows updating resources.\n- **delete**: Allows deleting resources.\n\n## Contact\nIf you have any questions or suggestions, feel free to contact us.\n- **Email**: [contact@mrxsys.com](mailto:contact@mrxsys.com)\n---\n\n*MRX Systems © 2024*\n\n\nContact Support:\n Name: MRX Systems\n Email: contact@mrxsys.com",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "8692884"
+		"_exporter_id": "17735603"
 	},
 	"item": [
 		{
@@ -53,71 +53,71 @@
 									"        pm.expect(password).to.match(/^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[\\W_]).{8,32}$/);  // Valid password regex\r",
 									"    });\r",
 									"}\r",
-									"// Iteration 2 -> UNAUTHORIZED\r",
-									"else if (pm.info.iteration === 1) {\r",
-									"    pm.test(\"Iteration 2 - Verify status code -> UNAUTHORIZED\", () => {\r",
-									"        response.to.have.status(404);  // Check that the status code is 404\r",
-									"        pm.expect(response.status).to.eql(\"Not Found\");  // Confirm response status as \"Unauthorized\"\r",
-									"    });\r",
+									"// // Iteration 2 -> UNAUTHORIZED\r",
+									"// else if (pm.info.iteration === 1) {\r",
+									"//     pm.test(\"Iteration 2 - Verify status code -> UNAUTHORIZED\", () => {\r",
+									"//         response.to.have.status(404);  // Check that the status code is 404\r",
+									"//         pm.expect(response.status).to.eql(\"Not Found\");  // Confirm response status as \"Unauthorized\"\r",
+									"//     });\r",
 									"\r",
-									"    pm.test(\"Iteration 2 - Response body structure is valid -> UNAUTHORIZED\", () => {\r",
-									"        pm.expect(response.json()).to.be.an('object').that.has.property('statusCode');  // statusCode should exist\r",
-									"        pm.expect(response.json().statusCode).to.be.a('number');  // statusCode should be a number\r",
-									"        pm.expect(response.json()).to.be.an('object').that.has.property('content');  // content should exist\r",
-									"        pm.expect(response.json()).to.be.an('object').that.has.property('message');  // message should exist\r",
-									"        pm.expect(response.json().message).to.be.a('string');  // message should be a string\r",
-									"        pm.expect(response.json().content).to.be.an('object').that.has.all.keys('table', 'database');  // content should have 'table' and 'database' keys\r",
-									"        pm.expect(response.json().content.table).to.be.a('string');  // 'table' should be a string\r",
-									"        pm.expect(response.json().content.database).to.be.a('string');  // 'database' should be a string\r",
-									"    });\r",
+									"//     pm.test(\"Iteration 2 - Response body structure is valid -> UNAUTHORIZED\", () => {\r",
+									"//         pm.expect(response.json()).to.be.an('object').that.has.property('statusCode');  // statusCode should exist\r",
+									"//         pm.expect(response.json().statusCode).to.be.a('number');  // statusCode should be a number\r",
+									"//         pm.expect(response.json()).to.be.an('object').that.has.property('content');  // content should exist\r",
+									"//         pm.expect(response.json()).to.be.an('object').that.has.property('message');  // message should exist\r",
+									"//         pm.expect(response.json().message).to.be.a('string');  // message should be a string\r",
+									"//         pm.expect(response.json().content).to.be.an('object').that.has.all.keys('table', 'database');  // content should have 'table' and 'database' keys\r",
+									"//         pm.expect(response.json().content.table).to.be.a('string');  // 'table' should be a string\r",
+									"//         pm.expect(response.json().content.database).to.be.a('string');  // 'database' should be a string\r",
+									"//     });\r",
 									"\r",
-									"    pm.test(\"Iteration 2 - Verify message -> UNAUTHORIZED\", () => {\r",
-									"        pm.expect(response.json().message).to.eql(\"Model User not found in database aspnetdb\");  // Expect specific message for unauthorized access\r",
-									"    });\r",
-									"}\r",
-									"// Iteration 3 -> BAD REQUEST\r",
-									"else if (pm.info.iteration === 2) {\r",
-									"    pm.test(\"Iteration 3 - Verify status code -> BAD REQUEST\", () => {\r",
-									"        response.to.have.status(400);  // Check that the status code is 400\r",
-									"        pm.expect(response.status).to.eql(\"Bad Request\");  // Confirm response status as \"Bad Request\"\r",
-									"    });\r",
+									"//     pm.test(\"Iteration 2 - Verify message -> UNAUTHORIZED\", () => {\r",
+									"//         pm.expect(response.json().message).to.eql(\"Model User not found in database aspnetdb\");  // Expect specific message for unauthorized access\r",
+									"//     });\r",
+									"// }\r",
+									"// // Iteration 3 -> BAD REQUEST\r",
+									"// else if (pm.info.iteration === 2) {\r",
+									"//     pm.test(\"Iteration 3 - Verify status code -> BAD REQUEST\", () => {\r",
+									"//         response.to.have.status(400);  // Check that the status code is 400\r",
+									"//         pm.expect(response.status).to.eql(\"Bad Request\");  // Confirm response status as \"Bad Request\"\r",
+									"//     });\r",
 									"\r",
-									"    pm.test(\"Iteration 3 - Response body structure is valid -> BAD REQUEST\", () => {\r",
-									"        pm.expect(response.json()).to.be.an('object').that.has.property('statusCode');  // statusCode should exist\r",
-									"        pm.expect(response.json().statusCode).to.be.a('number');  // statusCode should be a number\r",
-									"        pm.expect(response.json()).to.be.an('object').that.has.property('content');  // content should exist\r",
-									"        pm.expect(response.json().content).to.be.an('array');  // content should be an array of error details\r",
+									"//     pm.test(\"Iteration 3 - Response body structure is valid -> BAD REQUEST\", () => {\r",
+									"//         pm.expect(response.json()).to.be.an('object').that.has.property('statusCode');  // statusCode should exist\r",
+									"//         pm.expect(response.json().statusCode).to.be.a('number');  // statusCode should be a number\r",
+									"//         pm.expect(response.json()).to.be.an('object').that.has.property('content');  // content should exist\r",
+									"//         pm.expect(response.json().content).to.be.an('array');  // content should be an array of error details\r",
 									"\r",
-									"        // Iterate over each item in the content array and verify its structure\r",
-									"        for (let i = 0; i < response.json().content.length; i++) {\r",
-									"            let item = response.json().content[i];\r",
+									"//         // Iterate over each item in the content array and verify its structure\r",
+									"//         for (let i = 0; i < response.json().content.length; i++) {\r",
+									"//             let item = response.json().content[i];\r",
 									"\r",
-									"            pm.expect(item).to.be.an('object').that.has.all.keys('property', 'message', 'contraints');  // Ensure each error item has the required properties\r",
-									"            pm.expect(item.property).to.be.a('string');  // Ensure 'property' is a string\r",
-									"            pm.expect(item.message).to.be.a('string');  // Ensure 'message' is a string\r",
+									"//             pm.expect(item).to.be.an('object').that.has.all.keys('property', 'message', 'contraints');  // Ensure each error item has the required properties\r",
+									"//             pm.expect(item.property).to.be.a('string');  // Ensure 'property' is a string\r",
+									"//             pm.expect(item.message).to.be.a('string');  // Ensure 'message' is a string\r",
 									"\r",
-									"            pm.expect(item.contraints).to.be.an('object');  // Ensure 'contraints' is an object\r",
+									"//             pm.expect(item.contraints).to.be.an('object');  // Ensure 'contraints' is an object\r",
 									"\r",
-									"            // Validate specific constraint properties based on the error index\r",
-									"            if (i === 0) {\r",
-									"                pm.expect(item.contraints).to.have.property('format');  // Expect 'format' for email error\r",
-									"                pm.expect(item.contraints.format).to.be.a('string');  // Ensure 'format' is a string\r",
-									"            } else if (i === 1) {\r",
-									"                pm.expect(item.contraints).to.have.property('limit');  // Expect 'limit' for password length error\r",
-									"                pm.expect(item.contraints.limit).to.be.a('number');  // Ensure 'limit' is a number\r",
-									"            } else if (i === 2) {\r",
-									"                pm.expect(item.contraints).to.have.property('pattern');  // Expect 'pattern' for password pattern error\r",
-									"                pm.expect(item.contraints.pattern).to.be.a('string');  // Ensure 'pattern' is a string\r",
-									"            }\r",
-									"        }\r",
-									"    });\r",
+									"//             // Validate specific constraint properties based on the error index\r",
+									"//             if (i === 0) {\r",
+									"//                 pm.expect(item.contraints).to.have.property('format');  // Expect 'format' for email error\r",
+									"//                 pm.expect(item.contraints.format).to.be.a('string');  // Ensure 'format' is a string\r",
+									"//             } else if (i === 1) {\r",
+									"//                 pm.expect(item.contraints).to.have.property('limit');  // Expect 'limit' for password length error\r",
+									"//                 pm.expect(item.contraints.limit).to.be.a('number');  // Ensure 'limit' is a number\r",
+									"//             } else if (i === 2) {\r",
+									"//                 pm.expect(item.contraints).to.have.property('pattern');  // Expect 'pattern' for password pattern error\r",
+									"//                 pm.expect(item.contraints.pattern).to.be.a('string');  // Ensure 'pattern' is a string\r",
+									"//             }\r",
+									"//         }\r",
+									"//     });\r",
 									"\r",
-									"    pm.test(\"Iteration 3 - Verify message -> BAD REQUEST\", () => {\r",
-									"        pm.expect(response.json().content[0].message).to.eql(\"error.presentation.schema.format\");  // Expect error message related to email format\r",
-									"        pm.expect(response.json().content[1].message).to.eql(\"error.presentation.schema.minLength\");  // Expect error message related to password length\r",
-									"        pm.expect(response.json().content[2].message).to.eql(\"error.presentation.schema.pattern\");  // Expect error message related to password pattern\r",
-									"    });\r",
-									"}\r",
+									"//     pm.test(\"Iteration 3 - Verify message -> BAD REQUEST\", () => {\r",
+									"//         pm.expect(response.json().content[0].message).to.eql(\"error.presentation.schema.format\");  // Expect error message related to email format\r",
+									"//         pm.expect(response.json().content[1].message).to.eql(\"error.presentation.schema.minLength\");  // Expect error message related to password length\r",
+									"//         pm.expect(response.json().content[2].message).to.eql(\"error.presentation.schema.pattern\");  // Expect error message related to password pattern\r",
+									"//     });\r",
+									"// }\r",
 									""
 								],
 								"type": "text/javascript",
@@ -3452,6 +3452,3318 @@
 					]
 				}
 			]
+		},
+		{
+			"name": "techLogCounter",
+			"item": [
+				{
+					"name": "insert-ETechlogCounter",
+					"item": [
+						{
+							"name": "TechLogCounter",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Get the current iteration and response details\r",
+											"const response = pm.response;\r",
+											"\r",
+											"function checkInsertIteration(expectedData) {\r",
+											"    pm.test(\"Verify status code and message\", () => {\r",
+											"        pm.response.to.have.status(201);\r",
+											"        pm.expect(response.status).to.eql(\"Created\");\r",
+											"        pm.expect(response.json().message).to.eql(\"TechLogCounter: 1 items inserted\");\r",
+											"    });\r",
+											"\r",
+											"    pm.test(\"Response body structure is valid\", () => {\r",
+											"        const body = response.json();\r",
+											"\r",
+											"        // Retrieve the current value of the variable\r",
+											"        let currentArray = pm.environment.get(\"deleteTechlogParam\");\r",
+											"        currentArray = currentArray ? JSON.parse(currentArray) : []; // Initialize as an array if undefined\r",
+											"\r",
+											"        // Append new data\r",
+											"        currentArray.push(body.content.data[0].idTechlogCounter);\r",
+											"\r",
+											"        // Update the variable\r",
+											"        pm.environment.set(\"deleteTechlogParam\", JSON.stringify(currentArray));\r",
+											"\r",
+											"        // Validate top-level properties\r",
+											"        pm.expect(body).to.have.property('statusCode').that.is.a('number');\r",
+											"        pm.expect(body).to.have.property('message').that.is.a('string');\r",
+											"        pm.expect(body).to.have.property('content').that.is.an('object');\r",
+											"        pm.expect(body.content).to.have.property('table').that.is.a('string');\r",
+											"        pm.expect(body.content).to.have.property('data').that.is.an('array');\r",
+											"\r",
+											"        const actualData = body.content.data[0];\r",
+											"\r",
+											"        // Validate all properties in the first data object\r",
+											"        Object.entries(expectedData).forEach(([key, value]) => {\r",
+											"            pm.expect(actualData).to.have.property(key).that.deep.equals(value);\r",
+											"        });\r",
+											"    });\r",
+											"}\r",
+											"\r",
+											"const expectedData = [\r",
+											"        {\r",
+											"            idTechlog: '2181',\r",
+											"            idFlightAirframe: '3299',\r",
+											"            idFlightEngine: '2692',\r",
+											"            sAircraftReg: 'G-MRXA',\r",
+											"            idEngine: '4',\r",
+											"            dtDate: '2024-05-02T09:00:00.000Z',\r",
+											"            idCounter: '375',\r",
+											"            sType: 'Run Hour',\r",
+											"            dValue: 5,\r",
+											"            dStatus: 234437,\r",
+											"            sUser: null,\r",
+											"            dtStamp: null,\r",
+											"            idParent: null\r",
+											"        },\r",
+											"        {\r",
+											"            idTechlog: '2185',\r",
+											"            idFlightAirframe: null,\r",
+											"            idFlightEngine: '2700',\r",
+											"            sAircraftReg: 'G-MRXA',\r",
+											"            idEngine: '4',\r",
+											"            dtDate: '2024-05-03T12:00:00.000Z',\r",
+											"            idCounter: '375',\r",
+											"            sType: 'Run Hour',\r",
+											"            dValue: 7,\r",
+											"            dStatus: 234444,\r",
+											"            sUser: null,\r",
+											"            dtStamp: null,\r",
+											"            idParent: null\r",
+											"        },\r",
+											"        {\r",
+											"            idTechlog: '2185',\r",
+											"            idFlightAirframe: '3302',\r",
+											"            idFlightEngine: null,\r",
+											"            sAircraftReg: 'G-MRXA',\r",
+											"            idEngine: null,\r",
+											"            dtDate: '2024-05-03T12:00:00.000Z',\r",
+											"            idCounter: '357',\r",
+											"            sType: 'Run Hour',\r",
+											"            dValue: 9,\r",
+											"            dStatus: 234441,\r",
+											"            sUser: null,\r",
+											"            dtStamp: null,\r",
+											"            idParent: null\r",
+											"        }\r",
+											"    ]\r",
+											"\r",
+											"    checkInsertIteration(expectedData[pm.info.iteration]);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"// // Access the raw body with variables\r",
+											"// const rawBody = `{{tlc}}`;\r",
+											"\r",
+											"// // Replace variables with their actual values\r",
+											"// const resolvedBody = pm.variables.replaceIn(rawBody);\r",
+											"\r",
+											"// // Log the resolved body\r",
+											"// console.log(\"Resolved Request Body:\", resolvedBody);\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "database-using",
+										"value": "{{database-using}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{{tlc}}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/techLogCounter",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"techLogCounter"
+									]
+								},
+								"description": "Insert a new TechLogCounter or multiple TechLogCounter"
+							},
+							"response": [
+								{
+									"name": "Default Response",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer <token>",
+												"description": "Added as a part of security scheme: bearer"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"idTechlog\": \"<number>\",\n  \"sAircraftReg\": \"<string>\",\n  \"idEngine\": \"<number>\",\n  \"dtDate\": \"<dateTime>\",\n  \"idCounter\": \"<number>\",\n  \"sType\": \"<string>\",\n  \"dValue\": \"<string>\",\n  \"dStatus\": \"<string>\",\n  \"idFlightAirframe\": \"<number>\",\n  \"idFlightEngine\": \"<number>\",\n  \"sUser\": \"<string>\",\n  \"dtStamp\": \"<dateTime>\",\n  \"idParent\": \"<number>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/techLogCounter",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"techLogCounter"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": \"<string>\",\n  \"content\": {\n    \"data\": [\n      {\n        \"idTechlogCounter\": \"<number>\",\n        \"idTechlog\": \"<number>\",\n        \"idFlightAirframe\": \"<number>\",\n        \"idFlightEngine\": \"<number>\",\n        \"sAircraftReg\": \"<string>\",\n        \"idEngine\": \"<number>\",\n        \"dtDate\": \"<string>\",\n        \"idCounter\": \"<number>\",\n        \"sType\": \"<string>\",\n        \"dValue\": \"<string>\",\n        \"dStatus\": \"<string>\",\n        \"sUser\": \"<string>\",\n        \"dtStamp\": \"<string>\",\n        \"idParent\": \"<number>\"\n      },\n      {\n        \"idTechlogCounter\": \"<number>\",\n        \"idTechlog\": \"<number>\",\n        \"idFlightAirframe\": \"<number>\",\n        \"idFlightEngine\": \"<number>\",\n        \"sAircraftReg\": \"<string>\",\n        \"idEngine\": \"<number>\",\n        \"dtDate\": \"<string>\",\n        \"idCounter\": \"<number>\",\n        \"sType\": \"<string>\",\n        \"dValue\": \"<string>\",\n        \"dStatus\": \"<string>\",\n        \"sUser\": \"<string>\",\n        \"dtStamp\": \"<string>\",\n        \"idParent\": \"<number>\"\n      }\n    ],\n    \"count\": \"<number>\"\n  }\n}"
+								}
+							]
+						},
+						{
+							"name": "TechLogCounter - reinsert",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Get the current iteration and response details\r",
+											"const response = pm.response;\r",
+											"\r",
+											"function checkInsertIteration(expectedData) {\r",
+											"    pm.test(\"Verify status code and message\", () => {\r",
+											"        pm.response.to.have.status(409);\r",
+											"        pm.expect(response.status).to.eql(\"Conflict\");\r",
+											"        pm.expect(response.json().message).to.eql(\"TechLogCounter already exists\");\r",
+											"    });\r",
+											"\r",
+											"    pm.test(\"Response body structure is valid\", () => {\r",
+											"        const body = response.json();\r",
+											"\r",
+											"        // Validate top-level properties\r",
+											"        pm.expect(body).to.have.property('statusCode').that.is.a('number');\r",
+											"        pm.expect(body).to.have.property('message').that.is.a('string');\r",
+											"        pm.expect(body).to.have.property('content').that.is.an('object');\r",
+											"        pm.expect(body.content).to.have.property('element').that.is.a('string');\r",
+											"        pm.expect(body.content).to.have.property('entity').that.is.an('object');\r",
+											"\r",
+											"        const actualData = body.content.entity;\r",
+											"\r",
+											"        // Validate all properties in the first data object\r",
+											"        Object.entries(expectedData).forEach(([key, value]) => {\r",
+											"            pm.expect(actualData).to.have.property(key).that.deep.equals(value);\r",
+											"        });\r",
+											"    });\r",
+											"}\r",
+											"\r",
+											"const expectedData = [\r",
+											"        {\r",
+											"            idTechlog: '2181',\r",
+											"            idFlightAirframe: '3299',\r",
+											"            idFlightEngine: '2692',\r",
+											"            sAircraftReg: 'G-MRXA',\r",
+											"            idEngine: '4',\r",
+											"            dtDate: '2024-05-02T09:00:00.000Z',\r",
+											"            idCounter: '375',\r",
+											"            sType: 'Run Hour',\r",
+											"            dValue: 5,\r",
+											"            dStatus: 234437,\r",
+											"            sUser: null,\r",
+											"            dtStamp: null,\r",
+											"            idParent: null\r",
+											"        },\r",
+											"        {\r",
+											"            idTechlog: '2185',\r",
+											"            idFlightAirframe: null,\r",
+											"            idFlightEngine: '2700',\r",
+											"            sAircraftReg: 'G-MRXA',\r",
+											"            idEngine: '4',\r",
+											"            dtDate: '2024-05-03T12:00:00.000Z',\r",
+											"            idCounter: '375',\r",
+											"            sType: 'Run Hour',\r",
+											"            dValue: 7,\r",
+											"            dStatus: 234444,\r",
+											"            sUser: null,\r",
+											"            dtStamp: null,\r",
+											"            idParent: null\r",
+											"        },\r",
+											"        {\r",
+											"            idTechlog: '2185',\r",
+											"            idFlightAirframe: '3302',\r",
+											"            idFlightEngine: null,\r",
+											"            sAircraftReg: 'G-MRXA',\r",
+											"            idEngine: null,\r",
+											"            dtDate: '2024-05-03T12:00:00.000Z',\r",
+											"            idCounter: '357',\r",
+											"            sType: 'Run Hour',\r",
+											"            dValue: 9,\r",
+											"            dStatus: 234441,\r",
+											"            sUser: null,\r",
+											"            dtStamp: null,\r",
+											"            idParent: null\r",
+											"        }\r",
+											"    ]\r",
+											"\r",
+											"    checkInsertIteration(expectedData[pm.info.iteration]);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"// // Access the raw body with variables\r",
+											"// const rawBody = `{{tlc}}`;\r",
+											"\r",
+											"// // Replace variables with their actual values\r",
+											"// const resolvedBody = pm.variables.replaceIn(rawBody);\r",
+											"\r",
+											"// // Log the resolved body\r",
+											"// console.log(\"Resolved Request Body:\", resolvedBody);\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "database-using",
+										"value": "{{database-using}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{{tlc}}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/techLogCounter",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"techLogCounter"
+									]
+								},
+								"description": "Insert a new TechLogCounter or multiple TechLogCounter"
+							},
+							"response": [
+								{
+									"name": "Default Response",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer <token>",
+												"description": "Added as a part of security scheme: bearer"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"idTechlog\": \"<number>\",\n  \"sAircraftReg\": \"<string>\",\n  \"idEngine\": \"<number>\",\n  \"dtDate\": \"<dateTime>\",\n  \"idCounter\": \"<number>\",\n  \"sType\": \"<string>\",\n  \"dValue\": \"<string>\",\n  \"dStatus\": \"<string>\",\n  \"idFlightAirframe\": \"<number>\",\n  \"idFlightEngine\": \"<number>\",\n  \"sUser\": \"<string>\",\n  \"dtStamp\": \"<dateTime>\",\n  \"idParent\": \"<number>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/techLogCounter",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"techLogCounter"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": \"<string>\",\n  \"content\": {\n    \"data\": [\n      {\n        \"idTechlogCounter\": \"<number>\",\n        \"idTechlog\": \"<number>\",\n        \"idFlightAirframe\": \"<number>\",\n        \"idFlightEngine\": \"<number>\",\n        \"sAircraftReg\": \"<string>\",\n        \"idEngine\": \"<number>\",\n        \"dtDate\": \"<string>\",\n        \"idCounter\": \"<number>\",\n        \"sType\": \"<string>\",\n        \"dValue\": \"<string>\",\n        \"dStatus\": \"<string>\",\n        \"sUser\": \"<string>\",\n        \"dtStamp\": \"<string>\",\n        \"idParent\": \"<number>\"\n      },\n      {\n        \"idTechlogCounter\": \"<number>\",\n        \"idTechlog\": \"<number>\",\n        \"idFlightAirframe\": \"<number>\",\n        \"idFlightEngine\": \"<number>\",\n        \"sAircraftReg\": \"<string>\",\n        \"idEngine\": \"<number>\",\n        \"dtDate\": \"<string>\",\n        \"idCounter\": \"<number>\",\n        \"sType\": \"<string>\",\n        \"dValue\": \"<string>\",\n        \"dStatus\": \"<string>\",\n        \"sUser\": \"<string>\",\n        \"dtStamp\": \"<string>\",\n        \"idParent\": \"<number>\"\n      }\n    ],\n    \"count\": \"<number>\"\n  }\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "delete-ETechlogCounter",
+					"item": [
+						{
+							"name": "TechLogCounter",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"        // Retrieve the current value of the variable\r",
+											"        let currentArray = pm.environment.get(\"deleteTechlogParam\");\r",
+											"        currentArray = currentArray ? JSON.parse(currentArray) : []; // Initialize as an array if undefined\r",
+											"\r",
+											"        // Update the variable\r",
+											"        pm.collectionVariables.set(\"deleteParam\", currentArray[pm.info.iteration]);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Get the current iteration and response details\r",
+											"const response = pm.response;\r",
+											"\r",
+											"const number_of_iterations = 3;\r",
+											"\r",
+											"function checkDeleteIteration(expectedData) {\r",
+											"    pm.test(\"Verify status code and message\", () => {\r",
+											"        pm.response.to.have.status(201);\r",
+											"        pm.expect(response.status).to.eql(\"Created\");\r",
+											"        pm.expect(response.json().message).to.eql(\"TechLogCounter: 1 items updated\");\r",
+											"    });\r",
+											"\r",
+											"    pm.test(\"Response body structure is valid\", () => {\r",
+											"        const body = response.json();\r",
+											"\r",
+											"        // Validate top-level properties\r",
+											"        pm.expect(body).to.have.property('statusCode').that.is.a('number');\r",
+											"        pm.expect(body).to.have.property('message').that.is.a('string');\r",
+											"        pm.expect(body).to.have.property('content').that.is.an('object');\r",
+											"        pm.expect(body.content).to.have.property('count').that.is.a('number');\r",
+											"        pm.expect(body.content).to.have.property('table').that.is.a('string');\r",
+											"        pm.expect(body.content).to.have.property('data').that.is.an('array');\r",
+											"\r",
+											"        const actualData = body.content.data[0];\r",
+											"\r",
+											"        // Validate all properties in the first data object\r",
+											"        Object.entries(expectedData).forEach(([key, value]) => {\r",
+											"            pm.expect(actualData).to.have.property(key).that.deep.equals(value);\r",
+											"        });\r",
+											"    });\r",
+											"}\r",
+											"\r",
+											"let currentArray = pm.environment.get(\"deleteTechlogParam\");\r",
+											"currentArray = currentArray ? JSON.parse(currentArray) : [];\r",
+											"\r",
+											"const expectedData = [\r",
+											"    {\r",
+											"        idTechlog: '2181',\r",
+											"        idFlightAirframe: '3299',\r",
+											"        idFlightEngine: '2692',\r",
+											"        sAircraftReg: 'G-MRXA',\r",
+											"        idEngine: '4',\r",
+											"        dtDate: '2024-05-02T09:00:00.000Z',\r",
+											"        idCounter: '375',\r",
+											"        sType: 'Run Hour',\r",
+											"        dValue: 5,\r",
+											"        dStatus: 234437,\r",
+											"        sUser: 'contact@mrxsys.com',\r",
+											"        // dtStamp: null,\r",
+											"        idParent: (parseInt(currentArray[pm.info.iteration]) + pm.info.iterationCount).toString()\r",
+											"    },\r",
+											"    {\r",
+											"        idTechlog: '2185',\r",
+											"        idFlightAirframe: null,\r",
+											"        idFlightEngine: '2700',\r",
+											"        sAircraftReg: 'G-MRXA',\r",
+											"        idEngine: '4',\r",
+											"        dtDate: '2024-05-03T12:00:00.000Z',\r",
+											"        idCounter: '375',\r",
+											"        sType: 'Run Hour',\r",
+											"        dValue: 7,\r",
+											"        dStatus: 234439,\r",
+											"        sUser: 'contact@mrxsys.com',\r",
+											"        // dtStamp: null,\r",
+											"        idParent: (parseInt(currentArray[pm.info.iteration]) + pm.info.iterationCount).toString()\r",
+											"    },\r",
+											"    {\r",
+											"        idTechlog: '2185',\r",
+											"        idFlightAirframe: '3302',\r",
+											"        idFlightEngine: null,\r",
+											"        sAircraftReg: 'G-MRXA',\r",
+											"        idEngine: null,\r",
+											"        dtDate: '2024-05-03T12:00:00.000Z',\r",
+											"        idCounter: '357',\r",
+											"        sType: 'Run Hour',\r",
+											"        dValue: 9,\r",
+											"        dStatus: 234441,\r",
+											"        sUser: 'contact@mrxsys.com',\r",
+											"        // dtStamp: null,\r",
+											"        idParent: (parseInt(currentArray[pm.info.iteration]) + pm.info.iterationCount).toString()\r",
+											"    }\r",
+											"]\r",
+											"\r",
+											"checkDeleteIteration(expectedData[pm.info.iteration]);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "database-using",
+										"value": "{{database-using}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/techLogCounter/:idTechlogCounter",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"techLogCounter",
+										":idTechlogCounter"
+									],
+									"variable": [
+										{
+											"key": "idTechlogCounter",
+											"value": "{{deleteParam}}",
+											"description": "(Required) "
+										}
+									]
+								},
+								"description": "Delete one TechLogCounter by idTechlogCounter"
+							},
+							"response": [
+								{
+									"name": "Default Response",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer <token>",
+												"description": "Added as a part of security scheme: bearer"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/techLogCounter/:idTechlogCounter",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"techLogCounter",
+												":idTechlogCounter"
+											],
+											"variable": [
+												{
+													"key": "idTechlogCounter",
+													"value": "<string>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": \"<string>\",\n  \"content\": {\n    \"data\": {\n      \"idTechlogCounter\": \"<number>\",\n      \"idTechlog\": \"<number>\",\n      \"idFlightAirframe\": \"<number>\",\n      \"idFlightEngine\": \"<number>\",\n      \"sAircraftReg\": \"<string>\",\n      \"idEngine\": \"<number>\",\n      \"dtDate\": \"<string>\",\n      \"idCounter\": \"<number>\",\n      \"sType\": \"<string>\",\n      \"dValue\": \"<string>\",\n      \"dStatus\": \"<string>\",\n      \"sUser\": \"<string>\",\n      \"dtStamp\": \"<string>\",\n      \"idParent\": \"<number>\"\n    }\n  }\n}"
+								}
+							]
+						},
+						{
+							"name": "TechLogCounter - delete deleted eTechlog",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"        // Retrieve the current value of the variable\r",
+											"        let currentArray = pm.environment.get(\"deleteTechlogParam\");\r",
+											"        currentArray = currentArray ? JSON.parse(currentArray) : []; // Initialize as an array if undefined\r",
+											"\r",
+											"        // Update the variable\r",
+											"        pm.collectionVariables.set(\"deleteParam\", currentArray[pm.info.iteration]);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Get the current iteration and response details\r",
+											"const response = pm.response;\r",
+											"\r",
+											"pm.test(\"Verify status code and message\", () => {\r",
+											"    pm.response.to.have.status(400);\r",
+											"    pm.expect(response.status).to.eql(\"Bad Request\");\r",
+											"    pm.expect(response.json().message).to.eql(\"The techlog counter you're trying to delete is linked to an e-techlog and was already deleted\");\r",
+											"    });\r",
+											"\r",
+											"    pm.test(\"Response body structure is valid\", () => {\r",
+											"    const body = response.json();\r",
+											"    // Validate top-level properties\r",
+											"    pm.expect(body).to.have.property('statusCode').that.is.a('number');\r",
+											"    pm.expect(body).to.have.property('message').that.is.a('string');\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "database-using",
+										"value": "{{database-using}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/techLogCounter/:idTechlogCounter",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"techLogCounter",
+										":idTechlogCounter"
+									],
+									"variable": [
+										{
+											"key": "idTechlogCounter",
+											"value": "{{deleteParam}}",
+											"description": "(Required) "
+										}
+									]
+								},
+								"description": "Delete one TechLogCounter by idTechlogCounter"
+							},
+							"response": [
+								{
+									"name": "Default Response",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer <token>",
+												"description": "Added as a part of security scheme: bearer"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/techLogCounter/:idTechlogCounter",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"techLogCounter",
+												":idTechlogCounter"
+											],
+											"variable": [
+												{
+													"key": "idTechlogCounter",
+													"value": "<string>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": \"<string>\",\n  \"content\": {\n    \"data\": {\n      \"idTechlogCounter\": \"<number>\",\n      \"idTechlog\": \"<number>\",\n      \"idFlightAirframe\": \"<number>\",\n      \"idFlightEngine\": \"<number>\",\n      \"sAircraftReg\": \"<string>\",\n      \"idEngine\": \"<number>\",\n      \"dtDate\": \"<string>\",\n      \"idCounter\": \"<number>\",\n      \"sType\": \"<string>\",\n      \"dValue\": \"<string>\",\n      \"dStatus\": \"<string>\",\n      \"sUser\": \"<string>\",\n      \"dtStamp\": \"<string>\",\n      \"idParent\": \"<number>\"\n    }\n  }\n}"
+								}
+							]
+						},
+						{
+							"name": "TechLogCounter - delete proof of deletion",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"        // Retrieve the current value of the variable\r",
+											"        let currentArray = pm.environment.get(\"deleteTechlogParam\");\r",
+											"        currentArray = currentArray ? JSON.parse(currentArray) : []; // Initialize as an array if undefined\r",
+											"\r",
+											"        // Update the variable\r",
+											"        pm.collectionVariables.set(\"deleteParam\", (parseInt(currentArray[pm.info.iteration]) + pm.info.iterationCount));"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Get the current iteration and response details\r",
+											"const response = pm.response;\r",
+											"\r",
+											"pm.test(\"Verify status code and message\", () => {\r",
+											"    pm.response.to.have.status(400);\r",
+											"    pm.expect(response.status).to.eql(\"Bad Request\");\r",
+											"    pm.expect(response.json().message).to.eql(\"The techlog counter you're trying to delete is the proof of a techlog counter that was already deleted\");\r",
+											"    });\r",
+											"\r",
+											"    pm.test(\"Response body structure is valid\", () => {\r",
+											"    const body = response.json();\r",
+											"    // Validate top-level properties\r",
+											"    pm.expect(body).to.have.property('statusCode').that.is.a('number');\r",
+											"    pm.expect(body).to.have.property('message').that.is.a('string');\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "database-using",
+										"value": "{{database-using}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/techLogCounter/:idTechlogCounter",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"techLogCounter",
+										":idTechlogCounter"
+									],
+									"variable": [
+										{
+											"key": "idTechlogCounter",
+											"value": "{{deleteParam}}",
+											"description": "(Required) "
+										}
+									]
+								},
+								"description": "Delete one TechLogCounter by idTechlogCounter"
+							},
+							"response": [
+								{
+									"name": "Default Response",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer <token>",
+												"description": "Added as a part of security scheme: bearer"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/techLogCounter/:idTechlogCounter",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"techLogCounter",
+												":idTechlogCounter"
+											],
+											"variable": [
+												{
+													"key": "idTechlogCounter",
+													"value": "<string>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": \"<string>\",\n  \"content\": {\n    \"data\": {\n      \"idTechlogCounter\": \"<number>\",\n      \"idTechlog\": \"<number>\",\n      \"idFlightAirframe\": \"<number>\",\n      \"idFlightEngine\": \"<number>\",\n      \"sAircraftReg\": \"<string>\",\n      \"idEngine\": \"<number>\",\n      \"dtDate\": \"<string>\",\n      \"idCounter\": \"<number>\",\n      \"sType\": \"<string>\",\n      \"dValue\": \"<string>\",\n      \"dStatus\": \"<string>\",\n      \"sUser\": \"<string>\",\n      \"dtStamp\": \"<string>\",\n      \"idParent\": \"<number>\"\n    }\n  }\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "insert fail schema validation",
+					"item": [
+						{
+							"name": "TechLogCounter - fail validation",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Get the current iteration and response details\r",
+											"const response = pm.response;\r",
+											"\r",
+											"pm.test(\"Verify status code and message\", () => {\r",
+											"    pm.response.to.have.status(400);\r",
+											"    pm.expect(response.status).to.eql(\"Bad Request\");\r",
+											"});\r",
+											"\r",
+											"const body = response.json();\r",
+											"pm.test(\"Response body structure is valid\", () => {\r",
+											"    pm.expect(body).to.have.property('statusCode').that.is.a('number');\r",
+											"    pm.expect(body.content).to.be.an(\"array\").that.is.not.empty;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Verify schema error\", () => {\r",
+											"    pm.expect(body.content[body.content.length - 1]).to.have.property(\"message\").that.deep.equals(\"error.presentation.schema.anyOf\");\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"// // Access the raw body with variables\r",
+											"// const rawBody = `{{tlc}}`;\r",
+											"\r",
+											"// // Replace variables with their actual values\r",
+											"// const resolvedBody = pm.variables.replaceIn(rawBody);\r",
+											"\r",
+											"// // Log the resolved body\r",
+											"// console.log(\"Resolved Request Body:\", resolvedBody);\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "database-using",
+										"value": "{{database-using}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{{tlc}}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/techLogCounter",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"techLogCounter"
+									]
+								},
+								"description": "Insert a new TechLogCounter or multiple TechLogCounter"
+							},
+							"response": [
+								{
+									"name": "Default Response",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer <token>",
+												"description": "Added as a part of security scheme: bearer"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"idTechlog\": \"<number>\",\n  \"sAircraftReg\": \"<string>\",\n  \"idEngine\": \"<number>\",\n  \"dtDate\": \"<dateTime>\",\n  \"idCounter\": \"<number>\",\n  \"sType\": \"<string>\",\n  \"dValue\": \"<string>\",\n  \"dStatus\": \"<string>\",\n  \"idFlightAirframe\": \"<number>\",\n  \"idFlightEngine\": \"<number>\",\n  \"sUser\": \"<string>\",\n  \"dtStamp\": \"<dateTime>\",\n  \"idParent\": \"<number>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/techLogCounter",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"techLogCounter"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": \"<string>\",\n  \"content\": {\n    \"data\": [\n      {\n        \"idTechlogCounter\": \"<number>\",\n        \"idTechlog\": \"<number>\",\n        \"idFlightAirframe\": \"<number>\",\n        \"idFlightEngine\": \"<number>\",\n        \"sAircraftReg\": \"<string>\",\n        \"idEngine\": \"<number>\",\n        \"dtDate\": \"<string>\",\n        \"idCounter\": \"<number>\",\n        \"sType\": \"<string>\",\n        \"dValue\": \"<string>\",\n        \"dStatus\": \"<string>\",\n        \"sUser\": \"<string>\",\n        \"dtStamp\": \"<string>\",\n        \"idParent\": \"<number>\"\n      },\n      {\n        \"idTechlogCounter\": \"<number>\",\n        \"idTechlog\": \"<number>\",\n        \"idFlightAirframe\": \"<number>\",\n        \"idFlightEngine\": \"<number>\",\n        \"sAircraftReg\": \"<string>\",\n        \"idEngine\": \"<number>\",\n        \"dtDate\": \"<string>\",\n        \"idCounter\": \"<number>\",\n        \"sType\": \"<string>\",\n        \"dValue\": \"<string>\",\n        \"dStatus\": \"<string>\",\n        \"sUser\": \"<string>\",\n        \"dtStamp\": \"<string>\",\n        \"idParent\": \"<number>\"\n      }\n    ],\n    \"count\": \"<number>\"\n  }\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "insert fail internal validation",
+					"item": [
+						{
+							"name": "TechLogCounter - fail not found",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Get the current iteration and response details\r",
+											"const response = pm.response;\r",
+											"\r",
+											"const code = pm.variables.get(\"code\");\r",
+											"const status = pm.variables.get(\"status\");\r",
+											"const message = pm.variables.get(\"message\")\r",
+											"\r",
+											"pm.test(\"Verify status code and message\", () => {\r",
+											"    pm.response.to.have.status(code);\r",
+											"    pm.expect(response.status).to.eql(status);\r",
+											"    pm.expect(response.json().message).to.eql(message);\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"// // Access the raw body with variables\r",
+											"// const rawBody = `{{tlc}}`;\r",
+											"\r",
+											"// // Replace variables with their actual values\r",
+											"// const resolvedBody = pm.variables.replaceIn(rawBody);\r",
+											"\r",
+											"// // Log the resolved body\r",
+											"// console.log(\"Resolved Request Body:\", resolvedBody);\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "database-using",
+										"value": "{{database-using}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{{tlc}}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/techLogCounter",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"techLogCounter"
+									]
+								},
+								"description": "Insert a new TechLogCounter or multiple TechLogCounter"
+							},
+							"response": [
+								{
+									"name": "Default Response",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer <token>",
+												"description": "Added as a part of security scheme: bearer"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"idTechlog\": \"<number>\",\n  \"sAircraftReg\": \"<string>\",\n  \"idEngine\": \"<number>\",\n  \"dtDate\": \"<dateTime>\",\n  \"idCounter\": \"<number>\",\n  \"sType\": \"<string>\",\n  \"dValue\": \"<string>\",\n  \"dStatus\": \"<string>\",\n  \"idFlightAirframe\": \"<number>\",\n  \"idFlightEngine\": \"<number>\",\n  \"sUser\": \"<string>\",\n  \"dtStamp\": \"<dateTime>\",\n  \"idParent\": \"<number>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/techLogCounter",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"techLogCounter"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": \"<string>\",\n  \"content\": {\n    \"data\": [\n      {\n        \"idTechlogCounter\": \"<number>\",\n        \"idTechlog\": \"<number>\",\n        \"idFlightAirframe\": \"<number>\",\n        \"idFlightEngine\": \"<number>\",\n        \"sAircraftReg\": \"<string>\",\n        \"idEngine\": \"<number>\",\n        \"dtDate\": \"<string>\",\n        \"idCounter\": \"<number>\",\n        \"sType\": \"<string>\",\n        \"dValue\": \"<string>\",\n        \"dStatus\": \"<string>\",\n        \"sUser\": \"<string>\",\n        \"dtStamp\": \"<string>\",\n        \"idParent\": \"<number>\"\n      },\n      {\n        \"idTechlogCounter\": \"<number>\",\n        \"idTechlog\": \"<number>\",\n        \"idFlightAirframe\": \"<number>\",\n        \"idFlightEngine\": \"<number>\",\n        \"sAircraftReg\": \"<string>\",\n        \"idEngine\": \"<number>\",\n        \"dtDate\": \"<string>\",\n        \"idCounter\": \"<number>\",\n        \"sType\": \"<string>\",\n        \"dValue\": \"<string>\",\n        \"dStatus\": \"<string>\",\n        \"sUser\": \"<string>\",\n        \"dtStamp\": \"<string>\",\n        \"idParent\": \"<number>\"\n      }\n    ],\n    \"count\": \"<number>\"\n  }\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "update etechlog",
+					"item": [
+						{
+							"name": "TechLogCounter - Update One",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"// Retrieve the current value of the variable\r",
+											"let currentArray = pm.environment.get(\"deleteTechlogParam\");\r",
+											"currentArray = currentArray ? JSON.parse(currentArray) : []; // Initialize as an array if undefined\r",
+											"\r",
+											"// Update the variable\r",
+											"pm.collectionVariables.set(\"deleteParam\", (parseInt(currentArray[pm.info.iteration]) + 3));"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Get the current iteration and response details\r",
+											"const response = pm.response;\r",
+											"let currentArray = pm.environment.get(\"deleteTechlogParam\");\r",
+											"currentArray = currentArray ? JSON.parse(currentArray) : []; // Initialize as an array if undefined\r",
+											"\r",
+											"function checkInsertIteration(expectedData) {\r",
+											"    pm.test(\"Verify status code and message\", () => {\r",
+											"        pm.response.to.have.status(201);\r",
+											"        pm.expect(response.status).to.eql(\"Created\");\r",
+											"        pm.expect(response.json().message).to.eql(\"TechLogCounter: 1 items updated\");\r",
+											"    });\r",
+											"\r",
+											"    pm.test(\"Response body structure is valid\", () => {\r",
+											"        const body = response.json();\r",
+											"        \r",
+											"        // Append new data\r",
+											"        currentArray.push(body.content.data[0].idTechlogCounter);\r",
+											"\r",
+											"        // Update the variable\r",
+											"        pm.environment.set(\"deleteTechlogParam\", JSON.stringify(currentArray));\r",
+											"\r",
+											"        // Validate top-level properties\r",
+											"        pm.expect(body).to.have.property('statusCode').that.is.a('number');\r",
+											"        pm.expect(body).to.have.property('message').that.is.a('string');\r",
+											"        pm.expect(body).to.have.property('content').that.is.an('object');\r",
+											"        pm.expect(body.content).to.have.property('table').that.is.a('string');\r",
+											"        pm.expect(body.content).to.have.property('data').that.is.an('array');\r",
+											"\r",
+											"        const actualData = body.content.data[0];\r",
+											"\r",
+											"        // Validate all properties in the first data object\r",
+											"        Object.entries(expectedData).forEach(([key, value]) => {\r",
+											"            pm.expect(actualData).to.have.property(key).that.deep.equals(value);\r",
+											"        });\r",
+											"    });\r",
+											"}\r",
+											"\r",
+											"const expectedData = [\r",
+											"        {\r",
+											"            idTechlog: '2181',\r",
+											"            idFlightAirframe: '3299',\r",
+											"            idFlightEngine: '2692',\r",
+											"            sAircraftReg: 'G-MRXA',\r",
+											"            idEngine: '4',\r",
+											"            dtDate: '2024-05-02T09:00:00.000Z',\r",
+											"            idCounter: '375',\r",
+											"            sType: 'Run Hour',\r",
+											"            dValue: 0,\r",
+											"            dStatus: 0,\r",
+											"            sUser: \"contact@mrxsys.com\",\r",
+											"            idParent: (parseInt(currentArray[pm.info.iteration]) + 6).toString()\r",
+											"        },\r",
+											"        {\r",
+											"            idTechlog: '2185',\r",
+											"            idFlightAirframe: null,\r",
+											"            idFlightEngine: '2700',\r",
+											"            sAircraftReg: 'G-MRXA',\r",
+											"            idEngine: '4',\r",
+											"            dtDate: '2024-05-03T12:00:00.000Z',\r",
+											"            idCounter: '375',\r",
+											"            sType: 'Run Hour',\r",
+											"            dValue: 0,\r",
+											"            dStatus: 0,\r",
+											"            sUser: \"contact@mrxsys.com\",\r",
+											"            idParent: (parseInt(currentArray[pm.info.iteration]) + 6).toString()\r",
+											"        },\r",
+											"        {\r",
+											"            idTechlog: '2185',\r",
+											"            idFlightAirframe: '3302',\r",
+											"            idFlightEngine: null,\r",
+											"            sAircraftReg: 'G-MRXA',\r",
+											"            idEngine: null,\r",
+											"            dtDate: '2024-05-03T12:00:00.000Z',\r",
+											"            idCounter: '357',\r",
+											"            sType: 'Run Hour',\r",
+											"            dValue: 0,\r",
+											"            dStatus: 0,\r",
+											"            sUser: \"contact@mrxsys.com\",\r",
+											"            idParent: (parseInt(currentArray[pm.info.iteration]) + 6).toString()\r",
+											"        },\r",
+											"        {\r",
+											"            idTechlog: '2181',\r",
+											"            idFlightAirframe: '3299',\r",
+											"            idFlightEngine: '2692',\r",
+											"            sAircraftReg: 'G-MRXA',\r",
+											"            idEngine: '4',\r",
+											"            dtDate: '2024-05-02T09:00:00.000Z',\r",
+											"            idCounter: '375',\r",
+											"            sType: 'Run Hour',\r",
+											"            dValue: 15,\r",
+											"            dStatus: 234447,\r",
+											"            sUser: \"contact@mrxsys.com\",\r",
+											"            idParent: (parseInt(currentArray[pm.info.iteration]) + 6).toString()\r",
+											"        },\r",
+											"        {\r",
+											"            idTechlog: '2185',\r",
+											"            idFlightAirframe: null,\r",
+											"            idFlightEngine: '2700',\r",
+											"            sAircraftReg: 'G-MRXA',\r",
+											"            idEngine: '4',\r",
+											"            dtDate: '2024-05-03T12:00:00.000Z',\r",
+											"            idCounter: '375',\r",
+											"            sType: 'Run Hour',\r",
+											"            dValue: 10,\r",
+											"            dStatus: 234458,\r",
+											"            sUser: \"contact@mrxsys.com\",\r",
+											"            idParent: (parseInt(currentArray[pm.info.iteration]) + 6).toString()\r",
+											"        }\r",
+											"    ]\r",
+											"\r",
+											"    checkInsertIteration(expectedData[pm.info.iteration]);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "database-using",
+										"value": "{{database-using}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{{tlc}}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/techLogCounter/:idTechlogCounter",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"techLogCounter",
+										":idTechlogCounter"
+									],
+									"variable": [
+										{
+											"key": "idTechlogCounter",
+											"value": "{{deleteParam}}",
+											"description": "(Required) "
+										}
+									]
+								},
+								"description": "Update one TechLogCounter by idTechlogCounter"
+							},
+							"response": [
+								{
+									"name": "Default Response",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer <token>",
+												"description": "Added as a part of security scheme: bearer"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"idTechlog\": \"<number>\",\n  \"idFlightAirframe\": \"<number>\",\n  \"idFlightEngine\": \"<number>\",\n  \"sAircraftReg\": \"<string>\",\n  \"idEngine\": \"<number>\",\n  \"dtDate\": \"<dateTime>\",\n  \"idCounter\": \"<number>\",\n  \"sType\": \"<string>\",\n  \"dValue\": \"<string>\",\n  \"dStatus\": \"<string>\",\n  \"sUser\": \"<string>\",\n  \"dtStamp\": \"<dateTime>\",\n  \"idParent\": \"<number>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/techLogCounter/:idTechlogCounter",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"techLogCounter",
+												":idTechlogCounter"
+											],
+											"variable": [
+												{
+													"key": "idTechlogCounter",
+													"value": "<string>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": \"<string>\",\n  \"content\": {\n    \"data\": {\n      \"idTechlogCounter\": \"<number>\",\n      \"idTechlog\": \"<number>\",\n      \"idFlightAirframe\": \"<number>\",\n      \"idFlightEngine\": \"<number>\",\n      \"sAircraftReg\": \"<string>\",\n      \"idEngine\": \"<number>\",\n      \"dtDate\": \"<string>\",\n      \"idCounter\": \"<number>\",\n      \"sType\": \"<string>\",\n      \"dValue\": \"<string>\",\n      \"dStatus\": \"<string>\",\n      \"sUser\": \"<string>\",\n      \"dtStamp\": \"<string>\",\n      \"idParent\": \"<number>\"\n    },\n    \"count\": \"<number>\"\n  }\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "insert classic techlog tlc",
+					"item": [
+						{
+							"name": "TechLogCounter",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Get the current iteration and response details\r",
+											"const response = pm.response;\r",
+											"\r",
+											"function checkInsertIteration(expectedData) {\r",
+											"    pm.test(\"Verify status code and message\", () => {\r",
+											"        pm.response.to.have.status(201);\r",
+											"        pm.expect(response.status).to.eql(\"Created\");\r",
+											"        pm.expect(response.json().message).to.eql(\"TechLogCounter: 1 items inserted\");\r",
+											"    });\r",
+											"\r",
+											"    pm.test(\"Response body structure is valid\", () => {\r",
+											"        const body = response.json();\r",
+											"\r",
+											"        // Retrieve the current value of the variable\r",
+											"        let currentArray = pm.environment.get(\"classicTechlogsParam\");\r",
+											"        currentArray = currentArray ? JSON.parse(currentArray) : []; // Initialize as an array if undefined\r",
+											"\r",
+											"        // Append new data\r",
+											"        currentArray.push(body.content.data[0].idTechlogCounter);\r",
+											"\r",
+											"        // Update the variable\r",
+											"        pm.environment.set(\"classicTechlogsParam\", JSON.stringify(currentArray));\r",
+											"\r",
+											"        // Validate top-level properties\r",
+											"        pm.expect(body).to.have.property('statusCode').that.is.a('number');\r",
+											"        pm.expect(body).to.have.property('message').that.is.a('string');\r",
+											"        pm.expect(body).to.have.property('content').that.is.an('object');\r",
+											"        pm.expect(body.content).to.have.property('table').that.is.a('string');\r",
+											"        pm.expect(body.content).to.have.property('data').that.is.an('array');\r",
+											"\r",
+											"        const actualData = body.content.data[0];\r",
+											"\r",
+											"        // Validate all properties in the first data object\r",
+											"        Object.entries(expectedData).forEach(([key, value]) => {\r",
+											"            pm.expect(actualData).to.have.property(key).that.deep.equals(value);\r",
+											"        });\r",
+											"    });\r",
+											"}\r",
+											"\r",
+											"const expectedData = [\r",
+											"        {\r",
+											"            idTechlog: '2079',\r",
+											"            idFlightAirframe: '3205',\r",
+											"            idFlightEngine: null,\r",
+											"            sAircraftReg: 'G-MRXA',\r",
+											"            idEngine: null,\r",
+											"            dtDate: '2024-02-10T08:10:00.000Z',\r",
+											"            idCounter: '52',\r",
+											"            sType: 'Decimal',\r",
+											"            dValue: 5,\r",
+											"            dStatus: 5,\r",
+											"            sUser: null,\r",
+											"            dtStamp: null,\r",
+											"            idParent: null\r",
+											"        },\r",
+											"        {\r",
+											"            idTechlog: '2103',\r",
+											"            idFlightAirframe: null,\r",
+											"            idFlightEngine: '2615',\r",
+											"            sAircraftReg: 'G-MRXA',\r",
+											"            idEngine: '4',\r",
+											"            dtDate: '2024-03-22T10:30:00.000Z',\r",
+											"            idCounter: '375',\r",
+											"            sType: 'Run Hour',\r",
+											"            dValue: 7,\r",
+											"            dStatus: 234439,\r",
+											"            sUser: null,\r",
+											"            dtStamp: null,\r",
+											"            idParent: null\r",
+											"        },\r",
+											"        {\r",
+											"            idTechlog: '2103',\r",
+											"            idFlightAirframe: '3227',\r",
+											"            idFlightEngine: null,\r",
+											"            sAircraftReg: 'G-MRXA',\r",
+											"            idEngine: null,\r",
+											"            dtDate: '2024-03-22T10:30:00.000Z',\r",
+											"            idCounter: '52',\r",
+											"            sType: 'Decimal',\r",
+											"            dValue: 9,\r",
+											"            dStatus: 14,\r",
+											"            sUser: null,\r",
+											"            dtStamp: null,\r",
+											"            idParent: null\r",
+											"        }\r",
+											"    ]\r",
+											"\r",
+											"    checkInsertIteration(expectedData[pm.info.iteration]);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "database-using",
+										"value": "{{database-using}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{{tlc}}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/techLogCounter",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"techLogCounter"
+									]
+								},
+								"description": "Insert a new TechLogCounter or multiple TechLogCounter"
+							},
+							"response": [
+								{
+									"name": "Default Response",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer <token>",
+												"description": "Added as a part of security scheme: bearer"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"idTechlog\": \"<number>\",\n  \"sAircraftReg\": \"<string>\",\n  \"idEngine\": \"<number>\",\n  \"dtDate\": \"<dateTime>\",\n  \"idCounter\": \"<number>\",\n  \"sType\": \"<string>\",\n  \"dValue\": \"<string>\",\n  \"dStatus\": \"<string>\",\n  \"idFlightAirframe\": \"<number>\",\n  \"idFlightEngine\": \"<number>\",\n  \"sUser\": \"<string>\",\n  \"dtStamp\": \"<dateTime>\",\n  \"idParent\": \"<number>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/techLogCounter",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"techLogCounter"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": \"<string>\",\n  \"content\": {\n    \"data\": [\n      {\n        \"idTechlogCounter\": \"<number>\",\n        \"idTechlog\": \"<number>\",\n        \"idFlightAirframe\": \"<number>\",\n        \"idFlightEngine\": \"<number>\",\n        \"sAircraftReg\": \"<string>\",\n        \"idEngine\": \"<number>\",\n        \"dtDate\": \"<string>\",\n        \"idCounter\": \"<number>\",\n        \"sType\": \"<string>\",\n        \"dValue\": \"<string>\",\n        \"dStatus\": \"<string>\",\n        \"sUser\": \"<string>\",\n        \"dtStamp\": \"<string>\",\n        \"idParent\": \"<number>\"\n      },\n      {\n        \"idTechlogCounter\": \"<number>\",\n        \"idTechlog\": \"<number>\",\n        \"idFlightAirframe\": \"<number>\",\n        \"idFlightEngine\": \"<number>\",\n        \"sAircraftReg\": \"<string>\",\n        \"idEngine\": \"<number>\",\n        \"dtDate\": \"<string>\",\n        \"idCounter\": \"<number>\",\n        \"sType\": \"<string>\",\n        \"dValue\": \"<string>\",\n        \"dStatus\": \"<string>\",\n        \"sUser\": \"<string>\",\n        \"dtStamp\": \"<string>\",\n        \"idParent\": \"<number>\"\n      }\n    ],\n    \"count\": \"<number>\"\n  }\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "update classic techlog tlc",
+					"item": [
+						{
+							"name": "TechLogCounter - Update One",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"// Retrieve the current value of the variable\r",
+											"let currentArray = pm.environment.get(\"classicTechlogsParam\");\r",
+											"currentArray = currentArray ? JSON.parse(currentArray) : []; // Initialize as an array if undefined\r",
+											"\r",
+											"// Update the variable\r",
+											"pm.collectionVariables.set(\"classicDeleteParam\", (parseInt(currentArray[pm.info.iteration])));"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Get the current iteration and response details\r",
+											"const response = pm.response;\r",
+											"\r",
+											"function checkInsertIteration(expectedData) {\r",
+											"    pm.test(\"Verify status code and message\", () => {\r",
+											"        pm.response.to.have.status(201);\r",
+											"        pm.expect(response.status).to.eql(\"Created\");\r",
+											"        pm.expect(response.json().message).to.eql(\"TechLogCounter: 1 items updated\");\r",
+											"    });\r",
+											"\r",
+											"    pm.test(\"Response body structure is valid\", () => {\r",
+											"        const body = response.json();\r",
+											"\r",
+											"        // Validate top-level properties\r",
+											"        pm.expect(body).to.have.property('statusCode').that.is.a('number');\r",
+											"        pm.expect(body).to.have.property('message').that.is.a('string');\r",
+											"        pm.expect(body).to.have.property('content').that.is.an('object');\r",
+											"        pm.expect(body.content).to.have.property('table').that.is.a('string');\r",
+											"        pm.expect(body.content).to.have.property('data').that.is.an('array');\r",
+											"\r",
+											"        const actualData = body.content.data[0];\r",
+											"\r",
+											"        // Validate all properties in the first data object\r",
+											"        Object.entries(expectedData).forEach(([key, value]) => {\r",
+											"            pm.expect(actualData).to.have.property(key).that.deep.equals(value);\r",
+											"        });\r",
+											"    });\r",
+											"}\r",
+											"\r",
+											"const expectedData = [\r",
+											"        {\r",
+											"            idTechlog: '2079',\r",
+											"            idFlightAirframe: '3205',\r",
+											"            idFlightEngine: null,\r",
+											"            sAircraftReg: 'G-MRXA',\r",
+											"            idEngine: null,\r",
+											"            dtDate: '2024-02-10T08:10:00.000Z',\r",
+											"            idCounter: '52',\r",
+											"            sType: 'Decimal',\r",
+											"            dValue: 15,\r",
+											"            dStatus: 15,\r",
+											"            sUser: null,\r",
+											"            idParent: null\r",
+											"        },\r",
+											"        {\r",
+											"            idTechlog: '2079',\r",
+											"            idFlightAirframe: null,\r",
+											"            idFlightEngine: '2593',\r",
+											"            sAircraftReg: 'G-MRXA',\r",
+											"            idEngine: '4',\r",
+											"            dtDate: '2024-02-10T08:10:00.000Z',\r",
+											"            idCounter: '375',\r",
+											"            sType: 'Run Hour',\r",
+											"            dValue: 7,\r",
+											"            dStatus: 234439,\r",
+											"            sUser: null,\r",
+											"            idParent: null\r",
+											"        },\r",
+											"        {\r",
+											"            idTechlog: '2103',\r",
+											"            idFlightAirframe: '3226',\r",
+											"            idFlightEngine: null,\r",
+											"            sAircraftReg: 'G-MRXA',\r",
+											"            idEngine: null,\r",
+											"            dtDate: '2024-03-22T10:30:00.000Z',\r",
+											"            idCounter: '52',\r",
+											"            sType: 'Decimal',\r",
+											"            dValue: 9,\r",
+											"            dStatus: 24,\r",
+											"            sUser: null,\r",
+											"            idParent: null\r",
+											"        }\r",
+											"    ]\r",
+											"\r",
+											"    checkInsertIteration(expectedData[pm.info.iteration]);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "database-using",
+										"value": "{{database-using}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{{tlc}}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/techLogCounter/:idTechlogCounter",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"techLogCounter",
+										":idTechlogCounter"
+									],
+									"variable": [
+										{
+											"key": "idTechlogCounter",
+											"value": "{{classicDeleteParam}}",
+											"description": "(Required) "
+										}
+									]
+								},
+								"description": "Update one TechLogCounter by idTechlogCounter"
+							},
+							"response": [
+								{
+									"name": "Default Response",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer <token>",
+												"description": "Added as a part of security scheme: bearer"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"idTechlog\": \"<number>\",\n  \"idFlightAirframe\": \"<number>\",\n  \"idFlightEngine\": \"<number>\",\n  \"sAircraftReg\": \"<string>\",\n  \"idEngine\": \"<number>\",\n  \"dtDate\": \"<dateTime>\",\n  \"idCounter\": \"<number>\",\n  \"sType\": \"<string>\",\n  \"dValue\": \"<string>\",\n  \"dStatus\": \"<string>\",\n  \"sUser\": \"<string>\",\n  \"dtStamp\": \"<dateTime>\",\n  \"idParent\": \"<number>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/techLogCounter/:idTechlogCounter",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"techLogCounter",
+												":idTechlogCounter"
+											],
+											"variable": [
+												{
+													"key": "idTechlogCounter",
+													"value": "<string>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": \"<string>\",\n  \"content\": {\n    \"data\": {\n      \"idTechlogCounter\": \"<number>\",\n      \"idTechlog\": \"<number>\",\n      \"idFlightAirframe\": \"<number>\",\n      \"idFlightEngine\": \"<number>\",\n      \"sAircraftReg\": \"<string>\",\n      \"idEngine\": \"<number>\",\n      \"dtDate\": \"<string>\",\n      \"idCounter\": \"<number>\",\n      \"sType\": \"<string>\",\n      \"dValue\": \"<string>\",\n      \"dStatus\": \"<string>\",\n      \"sUser\": \"<string>\",\n      \"dtStamp\": \"<string>\",\n      \"idParent\": \"<number>\"\n    },\n    \"count\": \"<number>\"\n  }\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "delete classic techlog tlc",
+					"item": [
+						{
+							"name": "TechLogCounter Copy",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"// Retrieve the current value of the variable\r",
+											"let currentArray = pm.environment.get(\"classicTechlogsParam\");\r",
+											"currentArray = currentArray ? JSON.parse(currentArray) : []; // Initialize as an array if undefined\r",
+											"\r",
+											"// Update the variable\r",
+											"pm.collectionVariables.set(\"classicDeleteParam\", (parseInt(currentArray[pm.info.iteration])));"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Get the current iteration and response details\r",
+											"const response = pm.response;\r",
+											"\r",
+											"const number_of_iterations = 3;\r",
+											"\r",
+											"function checkDeleteIteration() {\r",
+											"    pm.test(\"Verify status code and message\", () => {\r",
+											"        pm.response.to.have.status(201);\r",
+											"        pm.expect(response.status).to.eql(\"Deleted\");\r",
+											"        pm.expect(response.json().message).to.eql(\"TechLogCounter: 1 items deleted\");\r",
+											"    });\r",
+											"\r",
+											"    pm.test(\"Response body structure is valid\", () => {\r",
+											"        const body = response.json();\r",
+											"\r",
+											"        // Validate top-level properties\r",
+											"        pm.expect(body).to.have.property('statusCode').that.is.a('number');\r",
+											"        pm.expect(body).to.have.property('message').that.is.a('string');\r",
+											"        pm.expect(body).to.have.property('content').that.is.an('object');\r",
+											"        pm.expect(body.content).to.have.property('count').that.is.a('number');\r",
+											"        pm.expect(body.content).to.have.property('table').that.is.a('string');\r",
+											"        pm.expect(body.content).to.have.property('data').that.is.an('array');\r",
+											"\r",
+											"    });\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "database-using",
+										"value": "{{database-using}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/techLogCounter/:idTechlogCounter",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"techLogCounter",
+										":idTechlogCounter"
+									],
+									"variable": [
+										{
+											"key": "idTechlogCounter",
+											"value": "{{classicDeleteParam}}",
+											"description": "(Required) "
+										}
+									]
+								},
+								"description": "Delete one TechLogCounter by idTechlogCounter"
+							},
+							"response": [
+								{
+									"name": "Default Response",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer <token>",
+												"description": "Added as a part of security scheme: bearer"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/techLogCounter/:idTechlogCounter",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"techLogCounter",
+												":idTechlogCounter"
+											],
+											"variable": [
+												{
+													"key": "idTechlogCounter",
+													"value": "<string>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": \"<string>\",\n  \"content\": {\n    \"data\": {\n      \"idTechlogCounter\": \"<number>\",\n      \"idTechlog\": \"<number>\",\n      \"idFlightAirframe\": \"<number>\",\n      \"idFlightEngine\": \"<number>\",\n      \"sAircraftReg\": \"<string>\",\n      \"idEngine\": \"<number>\",\n      \"dtDate\": \"<string>\",\n      \"idCounter\": \"<number>\",\n      \"sType\": \"<string>\",\n      \"dValue\": \"<string>\",\n      \"dStatus\": \"<string>\",\n      \"sUser\": \"<string>\",\n      \"dtStamp\": \"<string>\",\n      \"idParent\": \"<number>\"\n    }\n  }\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "wip",
+			"item": [
+				{
+					"name": "TechLogCounter - Find One",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "database-using",
+								"value": "{{database-using}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/techLogCounter/:idTechlogCounter",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"techLogCounter",
+								":idTechlogCounter"
+							],
+							"variable": [
+								{
+									"key": "idTechlogCounter",
+									"value": "124439",
+									"description": "(Required) "
+								}
+							]
+						},
+						"description": "Find one TechLogCounter by idTechlogCounter"
+					},
+					"response": [
+						{
+							"name": "Default Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer <token>",
+										"description": "Added as a part of security scheme: bearer"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/techLogCounter/:idTechlogCounter",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"techLogCounter",
+										":idTechlogCounter"
+									],
+									"variable": [
+										{
+											"key": "idTechlogCounter",
+											"value": "<string>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": \"<string>\",\n  \"content\": {\n    \"data\": {\n      \"idTechlogCounter\": \"<number>\",\n      \"idTechlog\": \"<number>\",\n      \"idFlightAirframe\": \"<number>\",\n      \"idFlightEngine\": \"<number>\",\n      \"sAircraftReg\": \"<string>\",\n      \"idEngine\": \"<number>\",\n      \"dtDate\": \"<string>\",\n      \"idCounter\": \"<number>\",\n      \"sType\": \"<string>\",\n      \"dValue\": \"<string>\",\n      \"dStatus\": \"<string>\",\n      \"sUser\": \"<string>\",\n      \"dtStamp\": \"<string>\",\n      \"idParent\": \"<number>\"\n    }\n  }\n}"
+						}
+					]
+				},
+				{
+					"name": "TechLogCounter - Find",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Get the current iteration and response details\r",
+									"const response = pm.response;\r",
+									"\r",
+									"// Iteration 1 -> SUCCESS\r",
+									"if (pm.info.iteration === 0) {\r",
+									"    pm.test(\"Verify status code\", () => {\r",
+									"        response.to.have.status(200);  // Check that the status code is 200\r",
+									"        pm.expect(response.status).to.eql(\"OK\");  // Confirm response status as \"OK\"\r",
+									"    });\r",
+									"\r",
+									"    pm.test(\"Response body structure is valid\", () => {\r",
+									"        pm.expect(response.json()).to.be.an('object').that.has.property('statusCode');  // statusCode should exist\r",
+									"        pm.expect(response.json().statusCode).to.be.a('number');  // statusCode should be a number\r",
+									"        pm.expect(response.json()).to.be.an('object').that.has.property('message');  // message should exist\r",
+									"        pm.expect(response.json().message).to.be.a('string');  // message should be a string\r",
+									"        pm.expect(response.json()).to.be.an('object').that.has.property('content');  // content should exist\r",
+									"        pm.expect(response.json().content.data).to.be.an('array');  // content should be an array of data\r",
+									"        pm.expect(response.json().content).to.be.an('object').that.has.property('count'); // count should exist\r",
+									"        pm.expect(response.json().content.count).to.be.a('number'); // count should be a number\r",
+									"        pm.expect(response.json().content).to.be.an('object').that.has.property('total'); // total should exist\r",
+									"        pm.expect(response.json().content.total).to.be.a('number'); // total should be a number\r",
+									"    });\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "database-using",
+								"value": "{{database-using}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/techLogCounter?idCounter={\"$in\":[\"357\",\"375\"]}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"techLogCounter"
+							],
+							"query": [
+								{
+									"key": "dtDate",
+									"value": "{\"$gt\": \"2023-10-09\"}",
+									"disabled": true
+								},
+								{
+									"key": "dtDate",
+									"value": "{\"$lt\": \"2023-10-09\"}",
+									"disabled": true
+								},
+								{
+									"key": "idFlightAirframe",
+									"value": "3155",
+									"disabled": true
+								},
+								{
+									"key": "idFlightAirframe",
+									"value": "3156",
+									"disabled": true
+								},
+								{
+									"key": "sAircraftReg",
+									"value": "{\"$match\":\"P\"}",
+									"disabled": true
+								},
+								{
+									"key": "sType",
+									"value": "{\"$eq\":\"Run Hour\"}",
+									"disabled": true
+								},
+								{
+									"key": "sAircraftReg",
+									"value": "{\"$match\":\"H\"}",
+									"disabled": true
+								},
+								{
+									"key": "sAircraftReg",
+									"value": "{\"$match\":\"E\"}",
+									"disabled": true
+								},
+								{
+									"key": "idCounter",
+									"value": "{\"$in\":[\"357\",\"375\"]}"
+								}
+							]
+						},
+						"description": "Find all TechLogCounter or find TechLogCounter by query"
+					},
+					"response": [
+						{
+							"name": "Default Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer <token>",
+										"description": "Added as a part of security scheme: bearer"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/techLogCounter?$in=<string>,<string>&$nin=<string>,<string>&$eq=<string>&$neq=<string>&$match=<string>&$lt=<string>&$lte=<string>&$gt=<string>&$gte=<string>&$in=<string>,<string>&$nin=<string>,<string>&$eq=<string>&$neq=<string>&$match=<string>&$lt=<string>&$lte=<string>&$gt=<string>&$gte=<string>&$in=<string>,<string>&$nin=<string>,<string>&$eq=<string>&$neq=<string>&$match=<string>&$lt=<string>&$lte=<string>&$gt=<string>&$gte=<string>&$in=<string>,<string>&$nin=<string>,<string>&$eq=<string>&$neq=<string>&$match=<string>&$lt=<string>&$lte=<string>&$gt=<string>&$gte=<string>&$in=<string>,<string>&$nin=<string>,<string>&$eq=<string>&$neq=<string>&$match=<string>&$lt=<string>&$lte=<string>&$gt=<string>&$gte=<string>&$in=<string>,<string>&$nin=<string>,<string>&$eq=<string>&$neq=<string>&$match=<string>&$lt=<string>&$lte=<string>&$gt=<string>&$gte=<string>&$in=<string>,<string>&$nin=<string>,<string>&$eq=<string>&$neq=<string>&$match=<string>&$lt=<string>&$lte=<string>&$gt=<string>&$gte=<string>&$in=<string>,<string>&$nin=<string>,<string>&$eq=<string>&$neq=<string>&$match=<string>&$lt=<string>&$lte=<string>&$gt=<string>&$gte=<string>&$in=<string>,<string>&$nin=<string>,<string>&$eq=<string>&$neq=<string>&$match=<string>&$lt=<string>&$lte=<string>&$gt=<string>&$gte=<string>&$in=<string>,<string>&$nin=<string>,<string>&$eq=<string>&$neq=<string>&$match=<string>&$lt=<string>&$lte=<string>&$gt=<string>&$gte=<string>&$in=<string>,<string>&$nin=<string>,<string>&$eq=<string>&$neq=<string>&$match=<string>&$lt=<string>&$lte=<string>&$gt=<string>&$gte=<string>&$in=<string>,<string>&$nin=<string>,<string>&$eq=<string>&$neq=<string>&$match=<string>&$lt=<string>&$lte=<string>&$gt=<string>&$gte=<string>&$in=<string>,<string>&$nin=<string>,<string>&$eq=<string>&$neq=<string>&$match=<string>&$lt=<string>&$lte=<string>&$gt=<string>&$gte=<string>&$in=<string>,<string>&$nin=<string>,<string>&$eq=<string>&$neq=<string>&$match=<string>&$lt=<string>&$lte=<string>&$gt=<string>&$gte=<string>&limit=<string>&offset=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"techLogCounter"
+									],
+									"query": [
+										{
+											"key": "$in",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "$nin",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "$eq",
+											"value": "<string>"
+										},
+										{
+											"key": "$neq",
+											"value": "<string>"
+										},
+										{
+											"key": "$match",
+											"value": "<string>"
+										},
+										{
+											"key": "$lt",
+											"value": "<string>"
+										},
+										{
+											"key": "$lte",
+											"value": "<string>"
+										},
+										{
+											"key": "$gt",
+											"value": "<string>"
+										},
+										{
+											"key": "$gte",
+											"value": "<string>"
+										},
+										{
+											"key": "$in",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "$nin",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "$eq",
+											"value": "<string>"
+										},
+										{
+											"key": "$neq",
+											"value": "<string>"
+										},
+										{
+											"key": "$match",
+											"value": "<string>"
+										},
+										{
+											"key": "$lt",
+											"value": "<string>"
+										},
+										{
+											"key": "$lte",
+											"value": "<string>"
+										},
+										{
+											"key": "$gt",
+											"value": "<string>"
+										},
+										{
+											"key": "$gte",
+											"value": "<string>"
+										},
+										{
+											"key": "$in",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "$nin",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "$eq",
+											"value": "<string>"
+										},
+										{
+											"key": "$neq",
+											"value": "<string>"
+										},
+										{
+											"key": "$match",
+											"value": "<string>"
+										},
+										{
+											"key": "$lt",
+											"value": "<string>"
+										},
+										{
+											"key": "$lte",
+											"value": "<string>"
+										},
+										{
+											"key": "$gt",
+											"value": "<string>"
+										},
+										{
+											"key": "$gte",
+											"value": "<string>"
+										},
+										{
+											"key": "$in",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "$nin",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "$eq",
+											"value": "<string>"
+										},
+										{
+											"key": "$neq",
+											"value": "<string>"
+										},
+										{
+											"key": "$match",
+											"value": "<string>"
+										},
+										{
+											"key": "$lt",
+											"value": "<string>"
+										},
+										{
+											"key": "$lte",
+											"value": "<string>"
+										},
+										{
+											"key": "$gt",
+											"value": "<string>"
+										},
+										{
+											"key": "$gte",
+											"value": "<string>"
+										},
+										{
+											"key": "$in",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "$nin",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "$eq",
+											"value": "<string>"
+										},
+										{
+											"key": "$neq",
+											"value": "<string>"
+										},
+										{
+											"key": "$match",
+											"value": "<string>"
+										},
+										{
+											"key": "$lt",
+											"value": "<string>"
+										},
+										{
+											"key": "$lte",
+											"value": "<string>"
+										},
+										{
+											"key": "$gt",
+											"value": "<string>"
+										},
+										{
+											"key": "$gte",
+											"value": "<string>"
+										},
+										{
+											"key": "$in",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "$nin",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "$eq",
+											"value": "<string>"
+										},
+										{
+											"key": "$neq",
+											"value": "<string>"
+										},
+										{
+											"key": "$match",
+											"value": "<string>"
+										},
+										{
+											"key": "$lt",
+											"value": "<string>"
+										},
+										{
+											"key": "$lte",
+											"value": "<string>"
+										},
+										{
+											"key": "$gt",
+											"value": "<string>"
+										},
+										{
+											"key": "$gte",
+											"value": "<string>"
+										},
+										{
+											"key": "$in",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "$nin",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "$eq",
+											"value": "<string>"
+										},
+										{
+											"key": "$neq",
+											"value": "<string>"
+										},
+										{
+											"key": "$match",
+											"value": "<string>"
+										},
+										{
+											"key": "$lt",
+											"value": "<string>"
+										},
+										{
+											"key": "$lte",
+											"value": "<string>"
+										},
+										{
+											"key": "$gt",
+											"value": "<string>"
+										},
+										{
+											"key": "$gte",
+											"value": "<string>"
+										},
+										{
+											"key": "$in",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "$nin",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "$eq",
+											"value": "<string>"
+										},
+										{
+											"key": "$neq",
+											"value": "<string>"
+										},
+										{
+											"key": "$match",
+											"value": "<string>"
+										},
+										{
+											"key": "$lt",
+											"value": "<string>"
+										},
+										{
+											"key": "$lte",
+											"value": "<string>"
+										},
+										{
+											"key": "$gt",
+											"value": "<string>"
+										},
+										{
+											"key": "$gte",
+											"value": "<string>"
+										},
+										{
+											"key": "$in",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "$nin",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "$eq",
+											"value": "<string>"
+										},
+										{
+											"key": "$neq",
+											"value": "<string>"
+										},
+										{
+											"key": "$match",
+											"value": "<string>"
+										},
+										{
+											"key": "$lt",
+											"value": "<string>"
+										},
+										{
+											"key": "$lte",
+											"value": "<string>"
+										},
+										{
+											"key": "$gt",
+											"value": "<string>"
+										},
+										{
+											"key": "$gte",
+											"value": "<string>"
+										},
+										{
+											"key": "$in",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "$nin",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "$eq",
+											"value": "<string>"
+										},
+										{
+											"key": "$neq",
+											"value": "<string>"
+										},
+										{
+											"key": "$match",
+											"value": "<string>"
+										},
+										{
+											"key": "$lt",
+											"value": "<string>"
+										},
+										{
+											"key": "$lte",
+											"value": "<string>"
+										},
+										{
+											"key": "$gt",
+											"value": "<string>"
+										},
+										{
+											"key": "$gte",
+											"value": "<string>"
+										},
+										{
+											"key": "$in",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "$nin",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "$eq",
+											"value": "<string>"
+										},
+										{
+											"key": "$neq",
+											"value": "<string>"
+										},
+										{
+											"key": "$match",
+											"value": "<string>"
+										},
+										{
+											"key": "$lt",
+											"value": "<string>"
+										},
+										{
+											"key": "$lte",
+											"value": "<string>"
+										},
+										{
+											"key": "$gt",
+											"value": "<string>"
+										},
+										{
+											"key": "$gte",
+											"value": "<string>"
+										},
+										{
+											"key": "$in",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "$nin",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "$eq",
+											"value": "<string>"
+										},
+										{
+											"key": "$neq",
+											"value": "<string>"
+										},
+										{
+											"key": "$match",
+											"value": "<string>"
+										},
+										{
+											"key": "$lt",
+											"value": "<string>"
+										},
+										{
+											"key": "$lte",
+											"value": "<string>"
+										},
+										{
+											"key": "$gt",
+											"value": "<string>"
+										},
+										{
+											"key": "$gte",
+											"value": "<string>"
+										},
+										{
+											"key": "$in",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "$nin",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "$eq",
+											"value": "<string>"
+										},
+										{
+											"key": "$neq",
+											"value": "<string>"
+										},
+										{
+											"key": "$match",
+											"value": "<string>"
+										},
+										{
+											"key": "$lt",
+											"value": "<string>"
+										},
+										{
+											"key": "$lte",
+											"value": "<string>"
+										},
+										{
+											"key": "$gt",
+											"value": "<string>"
+										},
+										{
+											"key": "$gte",
+											"value": "<string>"
+										},
+										{
+											"key": "$in",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "$nin",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "$eq",
+											"value": "<string>"
+										},
+										{
+											"key": "$neq",
+											"value": "<string>"
+										},
+										{
+											"key": "$match",
+											"value": "<string>"
+										},
+										{
+											"key": "$lt",
+											"value": "<string>"
+										},
+										{
+											"key": "$lte",
+											"value": "<string>"
+										},
+										{
+											"key": "$gt",
+											"value": "<string>"
+										},
+										{
+											"key": "$gte",
+											"value": "<string>"
+										},
+										{
+											"key": "limit",
+											"value": "<string>"
+										},
+										{
+											"key": "offset",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": \"<string>\",\n  \"content\": {\n    \"data\": [\n      {\n        \"idTechlogCounter\": \"<number>\",\n        \"idTechlog\": \"<number>\",\n        \"idFlightAirframe\": \"<number>\",\n        \"idFlightEngine\": \"<number>\",\n        \"sAircraftReg\": \"<string>\",\n        \"idEngine\": \"<number>\",\n        \"dtDate\": \"<string>\",\n        \"idCounter\": \"<number>\",\n        \"sType\": \"<string>\",\n        \"dValue\": \"<string>\",\n        \"dStatus\": \"<string>\",\n        \"sUser\": \"<string>\",\n        \"dtStamp\": \"<string>\",\n        \"idParent\": \"<number>\"\n      },\n      {\n        \"idTechlogCounter\": \"<number>\",\n        \"idTechlog\": \"<number>\",\n        \"idFlightAirframe\": \"<number>\",\n        \"idFlightEngine\": \"<number>\",\n        \"sAircraftReg\": \"<string>\",\n        \"idEngine\": \"<number>\",\n        \"dtDate\": \"<string>\",\n        \"idCounter\": \"<number>\",\n        \"sType\": \"<string>\",\n        \"dValue\": \"<string>\",\n        \"dStatus\": \"<string>\",\n        \"sUser\": \"<string>\",\n        \"dtStamp\": \"<string>\",\n        \"idParent\": \"<number>\"\n      }\n    ],\n    \"count\": \"<number>\",\n    \"total\": \"<number>\"\n  }\n}"
+						}
+					]
+				},
+				{
+					"name": "TechLogCounter - Count",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "database-using",
+								"value": "{{database-using}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/techLogCounter/count",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"techLogCounter",
+								"count"
+							],
+							"query": [
+								{
+									"key": "$in",
+									"value": "[\"<string>\",\"<string>\"]",
+									"disabled": true
+								},
+								{
+									"key": "$nin",
+									"value": "[\"<string>\",\"<string>\"]",
+									"disabled": true
+								},
+								{
+									"key": "$eq",
+									"value": "<string>",
+									"disabled": true
+								},
+								{
+									"key": "$neq",
+									"value": "<string>",
+									"disabled": true
+								},
+								{
+									"key": "$match",
+									"value": "<string>",
+									"disabled": true
+								},
+								{
+									"key": "$lt",
+									"value": "<string>",
+									"disabled": true
+								},
+								{
+									"key": "$lte",
+									"value": "<string>",
+									"disabled": true
+								},
+								{
+									"key": "$gt",
+									"value": "<string>",
+									"disabled": true
+								},
+								{
+									"key": "$gte",
+									"value": "<string>",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Count all TechLogCounter or count TechLogCounter by query"
+					},
+					"response": [
+						{
+							"name": "Default Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer <token>",
+										"description": "Added as a part of security scheme: bearer"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/techLogCounter/count?$in=<string>,<string>&$nin=<string>,<string>&$eq=<string>&$neq=<string>&$match=<string>&$lt=<string>&$lte=<string>&$gt=<string>&$gte=<string>&$in=<string>,<string>&$nin=<string>,<string>&$eq=<string>&$neq=<string>&$match=<string>&$lt=<string>&$lte=<string>&$gt=<string>&$gte=<string>&$in=<string>,<string>&$nin=<string>,<string>&$eq=<string>&$neq=<string>&$match=<string>&$lt=<string>&$lte=<string>&$gt=<string>&$gte=<string>&$in=<string>,<string>&$nin=<string>,<string>&$eq=<string>&$neq=<string>&$match=<string>&$lt=<string>&$lte=<string>&$gt=<string>&$gte=<string>&$in=<string>,<string>&$nin=<string>,<string>&$eq=<string>&$neq=<string>&$match=<string>&$lt=<string>&$lte=<string>&$gt=<string>&$gte=<string>&$in=<string>,<string>&$nin=<string>,<string>&$eq=<string>&$neq=<string>&$match=<string>&$lt=<string>&$lte=<string>&$gt=<string>&$gte=<string>&$in=<string>,<string>&$nin=<string>,<string>&$eq=<string>&$neq=<string>&$match=<string>&$lt=<string>&$lte=<string>&$gt=<string>&$gte=<string>&$in=<string>,<string>&$nin=<string>,<string>&$eq=<string>&$neq=<string>&$match=<string>&$lt=<string>&$lte=<string>&$gt=<string>&$gte=<string>&$in=<string>,<string>&$nin=<string>,<string>&$eq=<string>&$neq=<string>&$match=<string>&$lt=<string>&$lte=<string>&$gt=<string>&$gte=<string>&$in=<string>,<string>&$nin=<string>,<string>&$eq=<string>&$neq=<string>&$match=<string>&$lt=<string>&$lte=<string>&$gt=<string>&$gte=<string>&$in=<string>,<string>&$nin=<string>,<string>&$eq=<string>&$neq=<string>&$match=<string>&$lt=<string>&$lte=<string>&$gt=<string>&$gte=<string>&$in=<string>,<string>&$nin=<string>,<string>&$eq=<string>&$neq=<string>&$match=<string>&$lt=<string>&$lte=<string>&$gt=<string>&$gte=<string>&$in=<string>,<string>&$nin=<string>,<string>&$eq=<string>&$neq=<string>&$match=<string>&$lt=<string>&$lte=<string>&$gt=<string>&$gte=<string>&$in=<string>,<string>&$nin=<string>,<string>&$eq=<string>&$neq=<string>&$match=<string>&$lt=<string>&$lte=<string>&$gt=<string>&$gte=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"techLogCounter",
+										"count"
+									],
+									"query": [
+										{
+											"key": "$in",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "$nin",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "$eq",
+											"value": "<string>"
+										},
+										{
+											"key": "$neq",
+											"value": "<string>"
+										},
+										{
+											"key": "$match",
+											"value": "<string>"
+										},
+										{
+											"key": "$lt",
+											"value": "<string>"
+										},
+										{
+											"key": "$lte",
+											"value": "<string>"
+										},
+										{
+											"key": "$gt",
+											"value": "<string>"
+										},
+										{
+											"key": "$gte",
+											"value": "<string>"
+										},
+										{
+											"key": "$in",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "$nin",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "$eq",
+											"value": "<string>"
+										},
+										{
+											"key": "$neq",
+											"value": "<string>"
+										},
+										{
+											"key": "$match",
+											"value": "<string>"
+										},
+										{
+											"key": "$lt",
+											"value": "<string>"
+										},
+										{
+											"key": "$lte",
+											"value": "<string>"
+										},
+										{
+											"key": "$gt",
+											"value": "<string>"
+										},
+										{
+											"key": "$gte",
+											"value": "<string>"
+										},
+										{
+											"key": "$in",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "$nin",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "$eq",
+											"value": "<string>"
+										},
+										{
+											"key": "$neq",
+											"value": "<string>"
+										},
+										{
+											"key": "$match",
+											"value": "<string>"
+										},
+										{
+											"key": "$lt",
+											"value": "<string>"
+										},
+										{
+											"key": "$lte",
+											"value": "<string>"
+										},
+										{
+											"key": "$gt",
+											"value": "<string>"
+										},
+										{
+											"key": "$gte",
+											"value": "<string>"
+										},
+										{
+											"key": "$in",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "$nin",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "$eq",
+											"value": "<string>"
+										},
+										{
+											"key": "$neq",
+											"value": "<string>"
+										},
+										{
+											"key": "$match",
+											"value": "<string>"
+										},
+										{
+											"key": "$lt",
+											"value": "<string>"
+										},
+										{
+											"key": "$lte",
+											"value": "<string>"
+										},
+										{
+											"key": "$gt",
+											"value": "<string>"
+										},
+										{
+											"key": "$gte",
+											"value": "<string>"
+										},
+										{
+											"key": "$in",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "$nin",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "$eq",
+											"value": "<string>"
+										},
+										{
+											"key": "$neq",
+											"value": "<string>"
+										},
+										{
+											"key": "$match",
+											"value": "<string>"
+										},
+										{
+											"key": "$lt",
+											"value": "<string>"
+										},
+										{
+											"key": "$lte",
+											"value": "<string>"
+										},
+										{
+											"key": "$gt",
+											"value": "<string>"
+										},
+										{
+											"key": "$gte",
+											"value": "<string>"
+										},
+										{
+											"key": "$in",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "$nin",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "$eq",
+											"value": "<string>"
+										},
+										{
+											"key": "$neq",
+											"value": "<string>"
+										},
+										{
+											"key": "$match",
+											"value": "<string>"
+										},
+										{
+											"key": "$lt",
+											"value": "<string>"
+										},
+										{
+											"key": "$lte",
+											"value": "<string>"
+										},
+										{
+											"key": "$gt",
+											"value": "<string>"
+										},
+										{
+											"key": "$gte",
+											"value": "<string>"
+										},
+										{
+											"key": "$in",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "$nin",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "$eq",
+											"value": "<string>"
+										},
+										{
+											"key": "$neq",
+											"value": "<string>"
+										},
+										{
+											"key": "$match",
+											"value": "<string>"
+										},
+										{
+											"key": "$lt",
+											"value": "<string>"
+										},
+										{
+											"key": "$lte",
+											"value": "<string>"
+										},
+										{
+											"key": "$gt",
+											"value": "<string>"
+										},
+										{
+											"key": "$gte",
+											"value": "<string>"
+										},
+										{
+											"key": "$in",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "$nin",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "$eq",
+											"value": "<string>"
+										},
+										{
+											"key": "$neq",
+											"value": "<string>"
+										},
+										{
+											"key": "$match",
+											"value": "<string>"
+										},
+										{
+											"key": "$lt",
+											"value": "<string>"
+										},
+										{
+											"key": "$lte",
+											"value": "<string>"
+										},
+										{
+											"key": "$gt",
+											"value": "<string>"
+										},
+										{
+											"key": "$gte",
+											"value": "<string>"
+										},
+										{
+											"key": "$in",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "$nin",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "$eq",
+											"value": "<string>"
+										},
+										{
+											"key": "$neq",
+											"value": "<string>"
+										},
+										{
+											"key": "$match",
+											"value": "<string>"
+										},
+										{
+											"key": "$lt",
+											"value": "<string>"
+										},
+										{
+											"key": "$lte",
+											"value": "<string>"
+										},
+										{
+											"key": "$gt",
+											"value": "<string>"
+										},
+										{
+											"key": "$gte",
+											"value": "<string>"
+										},
+										{
+											"key": "$in",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "$nin",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "$eq",
+											"value": "<string>"
+										},
+										{
+											"key": "$neq",
+											"value": "<string>"
+										},
+										{
+											"key": "$match",
+											"value": "<string>"
+										},
+										{
+											"key": "$lt",
+											"value": "<string>"
+										},
+										{
+											"key": "$lte",
+											"value": "<string>"
+										},
+										{
+											"key": "$gt",
+											"value": "<string>"
+										},
+										{
+											"key": "$gte",
+											"value": "<string>"
+										},
+										{
+											"key": "$in",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "$nin",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "$eq",
+											"value": "<string>"
+										},
+										{
+											"key": "$neq",
+											"value": "<string>"
+										},
+										{
+											"key": "$match",
+											"value": "<string>"
+										},
+										{
+											"key": "$lt",
+											"value": "<string>"
+										},
+										{
+											"key": "$lte",
+											"value": "<string>"
+										},
+										{
+											"key": "$gt",
+											"value": "<string>"
+										},
+										{
+											"key": "$gte",
+											"value": "<string>"
+										},
+										{
+											"key": "$in",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "$nin",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "$eq",
+											"value": "<string>"
+										},
+										{
+											"key": "$neq",
+											"value": "<string>"
+										},
+										{
+											"key": "$match",
+											"value": "<string>"
+										},
+										{
+											"key": "$lt",
+											"value": "<string>"
+										},
+										{
+											"key": "$lte",
+											"value": "<string>"
+										},
+										{
+											"key": "$gt",
+											"value": "<string>"
+										},
+										{
+											"key": "$gte",
+											"value": "<string>"
+										},
+										{
+											"key": "$in",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "$nin",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "$eq",
+											"value": "<string>"
+										},
+										{
+											"key": "$neq",
+											"value": "<string>"
+										},
+										{
+											"key": "$match",
+											"value": "<string>"
+										},
+										{
+											"key": "$lt",
+											"value": "<string>"
+										},
+										{
+											"key": "$lte",
+											"value": "<string>"
+										},
+										{
+											"key": "$gt",
+											"value": "<string>"
+										},
+										{
+											"key": "$gte",
+											"value": "<string>"
+										},
+										{
+											"key": "$in",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "$nin",
+											"value": "<string>,<string>"
+										},
+										{
+											"key": "$eq",
+											"value": "<string>"
+										},
+										{
+											"key": "$neq",
+											"value": "<string>"
+										},
+										{
+											"key": "$match",
+											"value": "<string>"
+										},
+										{
+											"key": "$lt",
+											"value": "<string>"
+										},
+										{
+											"key": "$lte",
+											"value": "<string>"
+										},
+										{
+											"key": "$gt",
+											"value": "<string>"
+										},
+										{
+											"key": "$gte",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": \"<string>\",\n  \"content\": {\n    \"count\": \"<number>\"\n  }\n}"
+						}
+					]
+				}
+			]
 		}
 	],
 	"auth": {
@@ -3472,7 +6784,7 @@
 				"exec": [
 					"// Define the login request details (URL, method, headers, and body)\r",
 					"const loginRequest = {\r",
-					"    url: 'https://api.mrxsys.com/auth/login',  // API endpoint for login\r",
+					"    url: 'http://localhost:3000/auth/login',  // API endpoint for login\r",
 					"    method: 'POST',  // HTTP method to be used (POST for login)\r",
 					"    header: 'Content-Type:application/json',  // Set the header content type to JSON\r",
 					"    body: {\r",
@@ -3497,7 +6809,7 @@
 					"// Add a custom header for the database being used in the request\r",
 					"pm.request.headers.add({\r",
 					"    key: 'database-using',  // Header name\r",
-					"    value: 'beDemo6'  // Value indicating the specific database (e.g., 'beDemo1_dev')\r",
+					"    value: 'beDemo1_dev'  // Value indicating the specific database (e.g., 'beDemo1_dev')\r",
 					"});\r",
 					""
 				]
@@ -3517,13 +6829,25 @@
 	"variable": [
 		{
 			"key": "baseUrl",
-			"value": "https://api.mrxsys.com",
+			"value": "http://localhost:3000",
 			"type": "string"
 		},
 		{
 			"key": "bearerToken",
 			"value": "",
 			"type": "string"
+		},
+		{
+			"key": "deleteTechlogParam",
+			"value": "",
+			"type": "string",
+			"disabled": true
+		},
+		{
+			"key": "deleteParam",
+			"value": "",
+			"type": "string",
+			"disabled": true
 		}
 	]
 }

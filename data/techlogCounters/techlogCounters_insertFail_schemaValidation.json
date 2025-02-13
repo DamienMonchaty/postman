@@ -1,0 +1,32 @@
+[
+    {
+        "tlc": "{}"
+    },
+    {
+        "tlc": "{\"dValue\":5,\"idFlightAirframe\":3299,\"idFlightEngine\":2692}"
+    },
+    {
+        "tlc": "{\"idCounter\":375,\"idFlightEngine\":2700}"
+    },
+    {
+        "tlc": "{\"idCounter\":357,\"dValue\":9}"
+    },
+    {
+        "tlc": "{\"idCounter\":357,\"idFlightAirframe\":3303}"
+    },
+    {
+        "tlc": "{\"idCounter\":\"hello\",\"idFlightAirframe\":3303,\"dValue\":5}"
+    },
+    {
+        "tlc": "{\"idCounter\":357,\"idFlightAirframe\":3303,\"dValue\":\"hello\"}"
+    },
+    {
+        "tlc": "{\"idCounter\":357,\"idFlightAirframe\":\"hello\",\"dValue\":5}"
+    },
+    {
+        "tlc": "{\"idCounter\":357,\"idFlightAirframe\":3303,\"dValue\":-5}"
+    },
+    {
+        "tlc": "{\"idCounter\":357,\"idFlightAirframe\":3303,\"dValue\":0, \"idParent\": 1}"
+    }
+]

@@ -1,0 +1,44 @@
+[
+    {
+        "tlc": "{\"idCounter\":35700,\"idFlightAirframe\":3303,\"dValue\":5}",
+        "code": 404,
+        "status": "Not Found",
+        "message": "Counter not found"
+    },
+    {
+        "tlc": "{\"idCounter\":357,\"idFlightAirframe\":33030,\"dValue\":5}",
+        "code": 404,
+        "status": "Not Found",
+        "message": "FlightAirframe not found"
+    },
+    {
+        "tlc": "{\"idCounter\":357,\"idFlightEngine\":33030,\"dValue\":5}",
+        "code": 404,
+        "status": "Not Found",
+        "message": "Engine Daily Operation not found"
+    },
+    {
+        "tlc": "{\"idCounter\":375,\"idFlightEngine\":2692,\"idFlightAirframe\":3303,\"dValue\":5}",
+        "code": 400,
+        "status": "Bad Request",
+        "message": "TechLog must be the same for both flightAirframe and flightEngine"
+    },
+    {
+        "tlc": "{\"idCounter\":357,\"idFlightEngine\":2700,\"dValue\":5}",
+        "code": 400,
+        "status": "Bad Request",
+        "message": "Counter and FlightEngine do not match"
+    },
+    {
+        "tlc": "{\"idCounter\":357,\"idFlightAirframe\":44,\"dValue\":5}",
+        "code": 400,
+        "status": "Bad Request",
+        "message": "The Techlog (related to the provided flightEngine/flightAirframe) and the Counter must target the same aircraft"
+    },
+    {
+        "tlc": "{\"idCounter\":357,\"dValue\":11,\"idFlightAirframe\":3303,\"idFlightEngine\":2702}",
+        "code": 400,
+        "status": "Bad Request",
+        "message": "Counter and FlightEngine do not match"
+    }
+]
